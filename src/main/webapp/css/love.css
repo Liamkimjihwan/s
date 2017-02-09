@@ -1,0 +1,7 @@
+@charset "utf-8";
+@font-face {
+  font-family: 'love';
+  font-style: normal;
+  font-weight: normal;
+  src: local('love'), url('love.ttf') format('truetype');
+}

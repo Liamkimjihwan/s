@@ -1,0 +1,266 @@
+<html lang="ko" itemscope="" itemtype="http://schema.org/Organization"
+	xmlns:mml="http://www.w3.org/1998/Math/MathML"
+	xmlns:og="http://opengraphprotocol.org/schema/"
+	xmlns:fb="http://www.facebook.com/2008/fbml">
+<head
+	prefix="og: http://ogp.me/ns# khanacademy:
+            http://ogp.me/ns/apps/khanacademy#">
+
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.kastatic.org/genfiles/stylesheets/en/shared-package-2e51ee.css">
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.kastatic.org/genfiles/stylesheets/en/location-picker-package-c19428.css">
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.kastatic.org/genfiles/stylesheets/en/eduorg-picker-package-0b67e2.css">
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.kastatic.org/genfiles/stylesheets/en/profile-settings-package-8f3f56.css">
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.kastatic.org/genfiles/stylesheets/en/notifications-package-24758f.css">
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.kastatic.org/genfiles/stylesheets/en/settings-package-80c778.css">
+
+<!-- 설정페이지 창 -->
+<span id="main-content" class="sr-only" tabindex="-1">주요 내용</span>
+<div id="page-container" role="main">
+	<div id="page-container-inner">
+		<article class="container-fluid">
+			<div class="row-fluid">
+				<div id="user-settings" class="span6">
+
+					<h1 class="settings-header">설정</h1>
+
+					<div class="settings-body">
+
+						<div class="settings-tab account" style="display: block;">
+							<div class="settings-section">
+
+								<h3>기본사항</h3>
+
+								<form class="form-horizontal" id="basics-form" method="POST"
+									action="/settings/basics">
+									<input type="hidden" name="fkey"
+										value="1.0_y0i4xZ9t6GvU6g==_1486429010"> <input
+										type="hidden" name="userId"
+										value="http://id.khanacademy.org/c9ac5297561147daab1d1d830c6989ca">
+
+									<div class="control-group">
+										<label class="control-label" for="nickname">실명</label>
+										<div class="controls">
+											<input type="text" class="span6" name="nickname"
+												id="nickname" value="Liam.Kimjihwan"><span
+												class="help-inline" id="nickname-message"
+												style="display: none;">&nbsp;</span>
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label" for="username">사용자 이름</label>
+										<div class="controls">
+											<input type="text" class="span6" name="username"
+												id="username" value=""><span class="help-inline"
+												id="username-message" style="display: none;">&nbsp;</span>
+										</div>
+									</div>
+
+									<div class="control-group">
+										<div class="controls">
+											<input type="submit"
+												class="span6 simple-button submit-button"
+												name="submit-basics" id="submit-basics" value="변경 사항 저장">
+											<span class="success-message"></span>
+										</div>
+									</div>
+								</form>
+							</div>
+
+
+							<div class="settings-section">
+								<h3>비밀번호</h3>
+
+								<form class="form-horizontal" id="password-form" method="POST"
+									action="/pwchange">
+									<input type="hidden" name="fkey"
+										value="1.0_y0i4xZ9t6GvU6g==_1486429010">
+
+									<p>비밀번호를 만들면 칸아카데미 사용자 이름과 비밀번호로 로그인할 수 있습니다.</p>
+
+									<div class="control-group">
+										<label class="control-label" for="password1">새 비밀번호</label>
+										<div class="controls">
+											<input type="password" class="span6" name="password1"
+												id="password1" value=""> <span class="help-inline"
+												id="password1-message"></span>
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label" for="password2">새 비밀번호 다시
+											입력하기</label>
+										<div class="controls">
+											<input type="password" class="span6" name="password2"
+												id="password2" value=""> <span class="help-inline"
+												id="password2-message"></span>
+										</div>
+									</div>
+									<div class="control-group">
+										<div class="controls">
+											<input type="submit"
+												class="span6 simple-button submit-button"
+												name="submit-password" id="submit-password" value="비밀번호 만들기">
+											<span class="success-message"></span>
+										</div>
+									</div>
+								</form>
+							</div>
+
+
+							<div id="linked-accounts"
+								class="settings-section form-horizontal">
+
+								<h3 class="linked-accounts-header">연결된 계정</h3>
+
+								<p>이 연결된 계정은 칸아카데미에 로그인할 때 사용됩니다:</p>
+
+								<div id="login-warning-modal-holder"></div>
+
+								<div class="control-group google-linked-group">
+									<label class="control-label" for="login-google"><i
+										class="icon-google"></i> 구글</label>
+									<div class="controls">
+										liam.kimjihwan@gmail.com (<a href="#" class="disconnect-login"
+											data-type="google">연결 해제</a>)
+
+									</div>
+								</div>
+
+								<div class="control-group facebook-linked-group">
+									<label class="control-label" for="login-facebook"><i
+										class="icon-facebook-sign"></i> 페이스북</label>
+									<div class="controls">
+
+										<input type="button" id="login-facebook"
+											class="span6 simple-button submit-button add-third-party-account"
+											value="페이스북에 연결하기">
+
+									</div>
+								</div>
+
+								<div class="control-group">
+									<label class="control-label" for="email-logins"><i
+										class="icon-envelope"></i> 이메일</label>
+									<div class="controls">
+
+
+										<div class="linked-emails">
+
+											<div>Liam.Kimjihwan@gmail.com</div>
+
+										</div>
+
+										<em>내 칸아카데미 계정에 다른 이메일 주소를 연결하려면 먼저 위의 "비밀번호" 입력란에 내 계정의
+											비밀번호를 추가하세요.</em>
+
+									</div>
+								</div>
+							</div>
+
+
+							<div class="settings-section" id="mobile-section">
+								<h3>휴대전화 번호</h3>
+								<p>휴대전화 번호를 입력하면 이벤트 관련 문자 메시지를 수신할 수 있습니다.</p>
+
+								<form class="form-horizontal" id="mobile-form" method="POST"
+									action="/settings/mobile">
+									<input type="hidden" name="fkey"
+										value="1.0_y0i4xZ9t6GvU6g==_1486429010"> <input
+										type="hidden" name="userId"
+										value="http://id.khanacademy.org/c9ac5297561147daab1d1d830c6989ca">
+
+									<div class="control-group">
+										<label class="control-label" for="mobileNumber">휴대전화
+											번호</label>
+										<div class="controls">
+											<input type="text" class="span6" name="mobileNumber"
+												id="mobileNumber" value=""><span class="help-inline"
+												id="mobileNumber-message"></span>
+										</div>
+									</div>
+
+									<div class="control-group">
+										<div class="controls">
+											<input type="submit"
+												class="span6 simple-button submit-button"
+												name="submit-basics" id="submit-basics" value="변경 사항 저장">
+											<span class="success-message"></span>
+										</div>
+									</div>
+								</form>
+
+							</div>
+
+
+							<div class="settings-section" id="roles-section">
+								<h3>페이지 선택</h3>
+								<form class="form-horizontal" id="roles-form" method="POST"
+									action="/settings/roles">
+									<input type="hidden" name="fkey"
+										value="1.0_y0i4xZ9t6GvU6g==_1486429010">
+									<p>어떤 페이지를 메인홈페이지로 사용하시겠습니까?</p>
+									<div class="control-group">
+										<label class="control-label" for="homepage">홈페이지</label>
+										<div class="controls">
+											<select id="homepage" name="homepage" class="span6">
+
+												<option value="learner" selected="">검사결과페이지</option>
+
+												<option value="parent">마이페이지</option>
+
+												<option value="coach">검사씨드페이지</option>
+
+											</select>
+										</div>
+									</div>
+
+									<div class="control-group">
+										<div class="controls">
+											<input type="submit"
+												class="span6 simple-button submit-button"
+												name="submit-roles" id="submit-roles" value="변경 사항 저장">
+											<span class="success-message"></span>
+										</div>
+									</div>
+
+								</form>
+							</div>
+
+							<div class="settings-section">
+								<h3>계정 삭제하기</h3>
+
+								<form class="form-horizontal">
+									<div class="control-group">
+										<div class="controls">
+											<input href="#delete-modal" type="button"
+												class="simple-button submit-button orange"
+												data-toggle="modal" value="내 계정 삭제">
+										</div>
+									</div>
+								</form>
+
+							</div>
+						</div>
+
+						<!-- This is a react mount point -->
+					</div>
+
+				</div>
+			</div>
+		</article>
+
+	</div>
+</div>
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../js/bit.js"></script>
+<script src="../js/common.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

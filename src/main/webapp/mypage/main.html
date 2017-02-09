@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MyPage</title>
+<link rel="stylesheet" type="text/css" href="../css/love.css">
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link href='http://fonts.googleapis.com/css?family=Josefin+Sans+Std+Light' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../css/Daum_SemiBold.css">
+<link rel="stylesheet" href="../css/mypage.css">
+<link rel="stylesheet" href="/lib/w3.css">
+
+
+</head>
+<body>
+
+<div id="content">
+
+<div id='seed'>
+
+<div class="seed-list">
+<div class="circle seed-Button" id="seed1"></div>
+<div class="seed-title-day">
+<div class="seed-title">
+  <h4>흥미검사</h4>
+  </div>
+  <div class="d-day"><span>재검사 D-Day 350일</span></div>
+</div>
+</div>
+
+<div class="seed-list">
+<div class="circle seed-Button not-seed" id="seed2"><span>+</span></div>
+<div class="seed-title">
+  <h4></h4>
+  </div>
+</div>
+
+<div class="seed-list">
+<div class="circle seed-Button not-seed" id="seed3"><span>+</span></div>
+<div class="seed-title">
+  <h4></h4>
+  </div>
+</div>
+
+<div class="seed-list">
+<div class="circle seed-Button not-seed" id="seed4"><span>+</span></div>
+<div class="seed-title">
+  <h4></h4>
+  </div>
+</div>
+
+<div class="seed-list">
+<div class="circle seed-Button not-seed" id="seed5"><span>+</span></div>
+<div class="seed-title">
+  <h4></h4>
+  </div>
+</div>
+
+<div class="seed-list">
+<div class="circle seed-Button not-seed" id="seed6"><span>+</span></div>
+<div class="seed-title">
+  <h4></h4>
+  </div>
+</div>
+<div id="seed-bottom-line">
+<hr class="hrline">
+</div>
+</div>
+
+
+
+
+ <div class="object">
+ 
+ <div class="title-bar">
+<h4 id="title-btn-job" class="job-more title">추천직업</h4>
+<button id="job-btn" class="job-more ui-state-default ui-corner-all">더보기</button>
+ </div>
+
+
+<div class="toggler">
+  <div id="job-effect" class="ui-widget-content ui-corner-all">
+     <div class="rec rec-job1" id="job1" style="background-image:url('../image/program.jpg')"></div>
+     <div class="rec rec-job1" id="job2" style="background-image:url('../image/actor.jpg')"></div>
+     <div class="rec rec-job1" id="job3" style="background-image:url('../image/teacher.jpg')"></div>
+     
+     <div class="rec rec-job2" id="job4" style="background-image:url('../image/police.jpg')"></div>
+     <div class="rec rec-job2" id="job5" style="background-image:url('../image/doc.jpg')"></div>
+     <div class="rec rec-job2" id="job6" style="background-image:url('../image/arc.jpg')"></div>
+  </div>
+</div>
+ <div class="title-bar">
+<h4 id="rec-model" class="title">추천인물</h4>
+ </div>
+
+ <div class="slide">
+  <img class="mySlides" src="../image/steve.jpg">
+  <img class="mySlides" src="../image/lee.jpg">
+  <img class="mySlides" src="../image/eom.jpg">
+  <div class="w3-center w3-section w3-large w3-text-white " style="width:100%">
+  <!-- <div class="slide-btn"> -->
+    <div class="w3-left w3-padding-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10096;</div>
+    <div class="w3-right w3-padding-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10097;</div>
+  <!--   </div> -->
+<div class=" bottom w3-display-bottommiddle">
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white w3-white" onclick="currentDiv(1)"></span>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+    </div>
+    </div>
+  </div>
+  
+   <div class="title-bar">
+<h4 id="title-btn-mento" class="mento-more title">추천멘토</h4>
+<button id="mento-btn" class="mento-more ui-state-default ui-corner-all">더보기</button>
+ </div>
+
+
+<div class="toggler">
+  <div id="mento-effect" class="ui-widget-content ui-corner-all">
+     <div class="rec rec-mento1" id="mento1" style="background-image:url('../image/mento-.jpg')"></div>
+     <div class="rec rec-mento1" id="mento2" style="background-image:url('../image/program.jpg')"></div>
+     <div class="rec rec-mento1" id="mento3" style="background-image:url('../image/program.jpg')"></div>
+                                     
+     <div class="rec rec-mento2" id="mento4" style="background-image:url('../image/program.jpg')"></div>
+     <div class="rec rec-mento2" id="mento5" style="background-image:url('../image/program.jpg')"></div>
+     <div class="rec rec-mento2" id="mento6" style="background-image:url('../image/program.jpg')"></div>
+  </div>
+</div>
+
+   <div class="title-bar">
+<h4 id="title-btn-video" class="video-more title">추천영상</h4>
+<button id="video-btn" class="video-more ui-state-default ui-corner-all">더보기</button>
+ </div>
+
+
+<div class="toggler">
+  <div id="video-effect" class="ui-widget-content ui-corner-all">
+     <div class="rec rec-video1" id="video1" style="background-image:url('../image/program.jpg')"></div>
+     <div class="rec rec-video1" id="video2" style="background-image:url('../image/program.jpg')"></div>
+     <div class="rec rec-video1" id="video3" style="background-image:url('../image/program.jpg')"></div>
+                                     
+     <div class="rec rec-video2" id="video4" style="background-image:url('../image/program.jpg')"></div>
+     <div class="rec rec-video2" id="video5" style="background-image:url('../image/program.jpg')"></div>
+     <div class="rec rec-video2" id="video6" style="background-image:url('../image/program.jpg')"></div>
+  </div>
+</div>
+</div>
+
+
+ </div>
+ 
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/slide.js"></script>
+<script src="../js/bit.js"></script>
+<script src="../js/common.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+    
