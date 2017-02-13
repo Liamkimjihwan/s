@@ -2,11 +2,8 @@ package bitcamp.java89.ems2.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
 import bitcamp.java89.ems2.domain.Student;
 
-@Service
 public interface StudentService {
   List<Student> getList() throws Exception;
   Student getDetail(int no) throws Exception;
@@ -14,3 +11,19 @@ public interface StudentService {
   int delete(int no) throws Exception;
   int update(Student student) throws Exception;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

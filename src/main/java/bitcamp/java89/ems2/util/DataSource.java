@@ -5,14 +5,13 @@ import java.sql.DriverManager;
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Component;
-@Component // 직업 쓸일이 없기 때문에 이름표가 필요 없음.
+
+@Component
 public class DataSource {
   ArrayList<Connection> conPool = new ArrayList<>();
 
   public DataSource() throws Exception {
-
     Class.forName("com.mysql.jdbc.Driver");
-
   }
   
   public Connection getConnection() throws Exception {

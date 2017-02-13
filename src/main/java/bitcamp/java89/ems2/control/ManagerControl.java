@@ -18,69 +18,75 @@ import bitcamp.java89.ems2.util.MultipartUtil;
 @Controller
 public class ManagerControl {
   @Autowired ServletContext sc;
+  
   @Autowired ManagerService managerService;
 
   @RequestMapping("/manager/form")
   public String form(Model model) {
-    model.addAttribute("title", "매니저입력폼"); // main.jsp에 보내기전에 titl과 contentPage 정해서 보내준다.
+    model.addAttribute("title", "매니저 입력폼");
     model.addAttribute("contentPage", "manager/form.jsp");
     return "main";
   }
   
   @RequestMapping("/manager/list")
   public String list(Model model) throws Exception {
-    List<Manager> list = managerService.getList(); // Dao로부터 받은 list
+    List<Manager> list = managerService.getList();
     model.addAttribute("managers", list);
-    model.addAttribute("title", "매니저관리-목록"); // main.jsp에 보내기전에 titl과 contentPage 정해서 보내준다.
+    model.addAttribute("title", "매니저관리-목록");
     model.addAttribute("contentPage", "manager/list.jsp");
     return "main";
   }
-
+  
   @RequestMapping("/manager/add")
   public String add(Manager manager, MultipartFile photo) throws Exception {
-
-    if (photo.getSize() > 0 ) { // 0보다 크다는건 파일이 업로드 되었다는 뜻.
+    
+    if (photo.getSize() > 0) { // 파일이 업로드 되었다면,
       String newFilename = MultipartUtil.generateFilename();
-      photo.transferTo(new File(sc.getRealPath("/upload/" + newFilename))); // 
-      manager.setPhotoPath(newFilename); 
+      photo.transferTo(new File(sc.getRealPath("/upload/" + newFilename)));
+      manager.setPhotoPath(newFilename);
+    } else {
+      manager.setPhotoPath("default.png");
     }
+    
     managerService.add(manager);
+    
     return "redirect:list.do";
-
   }
-
+  
+  @RequestMapping("/manager/delete")
+  public String delete(int memberNo) throws Exception {
+    managerService.delete(memberNo);
+    return "redirect:list.do";
+  }
+  
   @RequestMapping("/manager/detail")
   public String detail(int memberNo, Model model) throws Exception {
-   Manager manager = managerService.getDetail(memberNo);   
+    Manager manager = managerService.getDetail(memberNo);
+    
     if (manager == null) {
-      throw new Exception("해당 매니저가 없습니다.");
+      throw new Exception("해당 아이디의 학생이 없습니다.");
     }
+    
     model.addAttribute("manager", manager);
     model.addAttribute("title", "매니저관리-상세정보");
     model.addAttribute("contentPage", "manager/detail.jsp");
+    
     return "main";
-
   }
-
-  @RequestMapping("/manager/delete")
-  public String delete(int memberNo) throws Exception {
-   managerService.delete(memberNo);
-
-    return "redirect:list.do";
-  }
-
+  
   @RequestMapping("/manager/update")
   public String update(Manager manager, MultipartFile photo) throws Exception {
-
-    if (photo.getSize() > 0 ) { // 0보다 크다는건 파일이 업로드 되었다는 뜻.
+    
+    if (photo.getSize() > 0) { // 파일이 업로드 되었다면,
       String newFilename = MultipartUtil.generateFilename();
-      photo.transferTo(new File(sc.getRealPath("/upload/" + newFilename))); // 
-      manager.setPhotoPath(newFilename); 
+      photo.transferTo(new File(sc.getRealPath("/upload/" + newFilename)));
+      manager.setPhotoPath(newFilename);
+    } else {
+      manager.setPhotoPath("default.png");
     }
+    
     managerService.update(manager);
-
+    
     return "redirect:list.do";
-
   }
-
 }

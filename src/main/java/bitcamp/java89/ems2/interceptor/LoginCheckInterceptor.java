@@ -8,19 +8,26 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import bitcamp.java89.ems2.domain.Member;
 
-public class LoginCheckInterceptor extends HandlerInterceptorAdapter{
-/*  
+public class LoginCheckInterceptor extends HandlerInterceptorAdapter {
   @Override
-   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception{
-
-      HttpSession session = request.getSession();
-      Member member = (Member)session.getAttribute("member");
-      
-      if (member == null ) {
-        response.sendRedirect(request.getContextPath() + "/auth/loginform.do");
-        return true;
-      }
-      return false; 
+  public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    HttpSession session = request.getSession();
+    Member member = (Member)session.getAttribute("member");
     
-  }*/
+    if (member == null) {
+      response.sendRedirect(request.getContextPath() + "/auth/loginform.do");
+      return false;
+    } 
+    
+    return true;
+  }
 }
+
+
+
+
+
+
+
+
+

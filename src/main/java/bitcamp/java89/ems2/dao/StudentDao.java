@@ -12,5 +12,4 @@ public interface StudentDao {
   Student getOne(int memberNo) throws Exception;
   int update(Student student) throws Exception;
   int delete(int memberNo) throws Exception;
-  
 }

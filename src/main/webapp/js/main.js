@@ -30,6 +30,7 @@ $( function() {
     var state = true;
     $( ".mento-more" ).on( "click", function() {
       if ( state ) {
+    	  $(".all-rec-model, .job-all, .video-all").hide().slideUp();
   	    $(".mento2-conts").hide().slideDown();
 	    $(".mento2-conts").css("display", "inline-block");
 	    

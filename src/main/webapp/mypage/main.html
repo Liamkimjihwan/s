@@ -29,11 +29,15 @@ web01 - ex9 / 86.html
 <!-- 추천직업-->
  <div class="object">
  
+ <div class="list-type">
+ <input id="tab-1" type="radio" name="tab" class="rec-list" checked><label for="tab-1" class="tab" style='margin-left:90px;'>추천목록 </label>
+    <input id="tab-2" type="radio" name="tab" class="like-list"><label for="tab-2" class="tab">좋아요 목록</label>
+    </div>
  <div class="job-all">
  <div class="title-bar">
 <h4 id="title-btn-job" class="job-more title">추천직업</h4>
 <button id="job-btn" class="job-more ui-state-default ui-corner-all">더보기</button>
-s </div>
+ </div>
 
 <!-- <div class="toggler"> -->
   <div id="job-effect" class=" ui-widget-content ui-corner-all">
@@ -41,43 +45,43 @@ s </div>
    <div class="job-conts">
      <div class="rec rec-job1" id="job1" style="background-image:url('../image/program.jpg')"></div>
      <div class="job-btm">
-     <div class="job-rank"><span>추천 1</span></div>
      <div class="job-name"><span>프로그래머</span></div>
+     <div class="job-detail"><p>프로그래머가 갖춰야할 사항은 인내심이다. <br>인내를 가지고 일에 몰두해야 한다.</p></div>
      </div>
      </div>
      <div class="job-conts">
      <div class="rec rec-job1" id="job2" style="background-image:url('../image/actor.jpg')"></div>
      <div class="job-btm">
-     <div class="job-rank"><span>추천 2</span></div>
-     <div class="job-name"><span>영화배우</span></div>
+      <div class="job-name"><span>영화배우</span></div>
+     <div class="job-detail"><p>영화배우가 갖춰야할 사항은 집중력이다. <br>집중력을 가지고 연기에 몰입해야 한다</p></div>
      </div>
      </div>
      <div class="job-conts">
      <div class="rec rec-job1" id="job3" style="background-image:url('../image/teacher.jpg')"></div>
      <div class="job-btm">
-     <div class="job-rank"><span>추천 3</span></div>
-     <div class="job-name"><span>선생님</span></div>
+      <div class="job-name"><span>선생님</span></div>
+    <div class="job-detail"><p>선생님이 갖춰야할 사항은 사랑이다. <br>사랑으로 학생을 대해야 한다.</p></div>
      </div>
      </div>
      <div class="job2-conts">
      <div class="rec rec-job2" id="job4" style="background-image:url('../image/police.jpg')"></div>
      <div class="job-btm">
-     <div class="job-rank"><span>추천 4</span></div>
-        <div class="job-name"><span>경찰관</span></div>
+     <div class="job-name"><span>경찰관</span></div>
+     <div class="job-detail"><p>경찰관이 갖춰야할 사항은 냉철함이다. <br>항상 정확한 판단을 내려야한다.</p></div>
         </div>
      </div>
      <div class="job2-conts">
      <div class="rec rec-job2" id="job5" style="background-image:url('../image/doc.jpg')"></div>
      <div class="job-btm">
-     <div class="job-rank"><span>추천 5</span></div>
-     <div class="job-name"><span>의사</span></div>
+     <div class="job-name"><span>의사 - 외과의</span></div>
+     <div class="job-detail"><p>의사들이 갖춰야할 사항은 냉철함이다. <br>항상 정확한 판단을 내려야한다.</p></div>
      </div>
      </div>
      <div class="job2-conts">
      <div class="rec rec-job2" id="job6" style="background-image:url('../image/arc.jpg')"></div>
      <div class="job-btm">
-     <div class="job-rank"><span>추천 6</span></div>
      <div class="job-name"><span>건축가</span></div>
+    <div class="job-detail"><p>건축가가 가져야할 사항은 섬세함이다. <br>섬세함으로 건축한다.</p></div>
      </div>
      </div>
   </div>
@@ -144,43 +148,55 @@ s </div>
   <div class="mento-conts">
      <div class="rec rec-mento1" id="mento1" style="background-image:url('../image/mento-program.jpg')"></div>
       <div class="mento-btm">
-        <div class="mento-title"><span>추천 1</span></div>
-        <div class="mento-name"><span>프로그래머</span></div>
+        <div class="mento-name"><span>천지연 개발자</span></div>
+       <div class="mento-detail"><p>IT-Front end</p></div>
+       <div class="mento-date"><span>Date:</span><p>2017-02-14</p></div>
+       <div class="mento-tag"><span>Tag :</span><p>IT,개발자,컴퓨터,JAVA</p></div>
       </div>
      </div>
   <div class="mento-conts">
      <div class="rec rec-mento1" id="mento2" style="background-image:url('../image/mento-program2.jpg')"></div>
       <div class="mento-btm">
-       <div class="mento-title"><span>추천 1</span></div>
-       <div class="mento-name"><span>프로그래머</span></div>
+       <div class="mento-name"><span>천지연 개발자</span></div>
+       <div class="mento-detail"><p>IT-Front</p></div>
+       <div class="mento-date"><span>Date:</span><p>2017-02-14</p></div>
+       <div class="mento-tag"><span>Tag :</span><p>IT,개발자,컴퓨터,JAVA</p></div>
       </div>
   </div>
   <div class="mento-conts">
      <div class="rec rec-mento1" id="mento3" style="background-image:url('../image/mento-arc.jpg')"></div>
        <div class="mento-btm">
-        <div class="mento-title"><span>추천 1</span></div>
-        <div class="mento-name"><span>프로그래머</span></div>
+       <div class="mento-name"><span>천지연 개발자</span></div>
+       <div class="mento-detail"><p>IT-Front</p></div>
+       <div class="mento-date"><span>Date:</span><p>2017-02-14</p></div>
+       <div class="mento-tag"><span>Tag :</span><p>IT,개발자,컴퓨터,JAVA</p></div>
        </div>
   </div>
       <div class="mento2-conts">
      <div class="rec rec-mento2" id="mento4" style="background-image:url('../image/mento-teacher.jpg')"></div>
                <div class="mento-btm">
-     <div class="mento-title"><span>추천 1</span></div>
-     <div class="mento-name"><span>프로그래머</span></div>
+       <div class="mento-name"><span>천지연 개발자</span></div>
+       <div class="mento-detail"><p>IT-Front</p></div>
+       <div class="mento-date"><span>Date:</span><p>2017-02-14</p></div>
+       <div class="mento-tag"><span>Tag :</span><p>IT,개발자,컴퓨터,JAVA</p></div>
      </div>
      </div>
      <div class="mento2-conts">
      <div class="rec rec-mento2" id="mento5" style="background-image:url('../image/mento-actor2.jpg')"></div>
                <div class="mento-btm">
-     <div class="mento-title"><span>추천 1</span></div>
-     <div class="mento-name"><span>프로그래머</span></div>
+       <div class="mento-name"><span>천지연 개발자</span></div>
+       <div class="mento-detail"><p>IT-Front</p></div>
+       <div class="mento-date"><span>Date:</span><p>2017-02-14</p></div>
+       <div class="mento-tag"><span>Tag :</span><p>IT,개발자,컴퓨터,JAVA</p></div>
      </div>
      </div>
      <div class="mento2-conts">
      <div class="rec rec-mento2" id="mento6" style="background-image:url('../image/mento-police.jpg')"></div>
        <div class="mento-btm">
-     <div class="mento-title"><span>추천 1</span></div>
-     <div class="mento-name"><span>프로그래머</span></div>
+       <div class="mento-name"><span>천지연 개발자</span></div>
+       <div class="mento-detail"><p>IT-Front</p></div>
+       <div class="mento-date"><span>Date:</span><p>2017-02-14</p></div>
+       <div class="mento-tag"><span>Tag :</span><p>IT,개발자,컴퓨터,JAVA</p></div>
      </div>
      </div>
   </div>
@@ -200,43 +216,55 @@ s </div>
   <div class="video-conts">
      <div class="rec rec-video1" id="video1" style="background-image:url('../image/video-1.jpg')"></div>
                <div class="video-btm">
-     <div class="video-title"><span>추천 1</span></div>
-     <div class="video-name"><span>프로그래머</span></div>
+       <div class="video-name"><span>Steve</span></div>
+       <div class="video-title"><p>프로그래머가 무엇일까요?</p></div>
+       <div class="video-date"><span>Date:</span><p>2017-02-14</p></div>
+       <div class="video-tag"><span>Tag :</span><p>IT,개발자,컴퓨터,JAVA</p></div>
      </div>
      </div>
      <div class="video-conts">
      <div class="rec rec-video1" id="video2" style="background-image:url('../image/video-2.jpg')"></div>
                <div class="video-btm">
-     <div class="video-title"><span>추천 1</span></div>
-     <div class="video-name"><span>프로그래머</span></div>
+       <div class="video-name"><span>David</span></div>
+       <div class="video-title"><p>직업을 선택하기 위해서는?</p></div>
+       <div class="video-date"><span>Date:</span><p>2017-02-14</p></div>
+       <div class="video-tag"><span>Tag :</span><p>직업,정보</p></div>
      </div>
      </div>
      <div class="video-conts">
      <div class="rec rec-video1" id="video3" style="background-image:url('../image/video-3.jpg')"></div>
                      <div class="video-btm">
-     <div class="video-title"><span>추천 1</span></div>
-     <div class="video-name"><span>프로그래머</span></div>
+       <div class="video-name"><span>Liam</span></div>
+       <div class="video-title"><p>공무원이란?</p></div>
+       <div class="video-date"><span>Date:</span><p>2017-02-14</p></div>
+       <div class="video-tag"><span>Tag :</span><p>공무원,사무,안정</p></div>
      </div>
      </div>
       <div class="video2-conts">       
      <div class="rec rec-video2" id="video4" style="background-image:url('../image/video-4.jpg')"></div>
                     <div class="video-btm">
-     <div class="video-title"><span>추천 1</span></div>
-     <div class="video-name"><span>프로그래머</span></div>
+     <div class="video-name"><span>Liam</span></div>
+       <div class="video-title"><p>공무원이란?</p></div>
+       <div class="video-date"><span>Date:</span><p>2017-02-14</p></div>
+       <div class="video-tag"><span>Tag :</span><p>공무원,사무,안정</p></div>
      </div>
      </div>
      <div class="video2-conts">
      <div class="rec rec-video2" id="video5" style="background-image:url('../image/video-5.jpg')"></div>
                     <div class="video-btm">
-     <div class="video-title"><span>추천 1</span></div>
-     <div class="video-name"><span>프로그래머</span></div>
+     <div class="video-name"><span>Liam</span></div>
+       <div class="video-title"><p>공무원이란?</p></div>
+       <div class="video-date"><span>Date:</span><p>2017-02-14</p></div>
+       <div class="video-tag"><span>Tag :</span><p>공무원,사무,안정</p></div>
      </div>
      </div>
      <div class="video2-conts">
      <div class="rec rec-video2" id="video6" style="background-image:url('../image/video-6.jpg')"></div>
                     <div class="video-btm">
-     <div class="video-title"><span>추천 1</span></div>
-     <div class="video-name"><span>프로그래머</span></div>
+     <div class="video-name"><span>Liam</span></div>
+       <div class="video-title"><p>공무원이란?</p></div>
+       <div class="video-date"><span>Date:</span><p>2017-02-14</p></div>
+       <div class="video-tag"><span>Tag :</span><p>공무원,사무,안정</p></div>
      </div>
      </div>
   </div>

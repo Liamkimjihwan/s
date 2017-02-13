@@ -15,62 +15,71 @@ import bitcamp.java89.ems2.service.StudentService;
 
 @Service
 public class StudentServiceImpl implements StudentService {
-  
   @Autowired MemberDao memberDao;
-  @Autowired StudentDao studentDao; 
-  @Autowired TeacherDao teacherDao;
+  @Autowired StudentDao studentDao;
   @Autowired ManagerDao managerDao;
+  @Autowired TeacherDao teacherDao;
   
   public List<Student> getList() throws Exception {
-   return studentDao.getList();
+    return studentDao.getList();
   }
   
-  public Student getDetail(int no) throws Exception{
+  public Student getDetail(int no) throws Exception {
     return studentDao.getOne(no);
-    
   }
+  
   public int add(Student student) throws Exception {
     
-    if ((studentDao.count(student.getEmail()) > 0)) {
+    if (studentDao.count(student.getEmail()) > 0) {
       throw new Exception("같은 학생의 이메일이 존재합니다. 등록을 취소합니다.");
     }
-
     
-    if (memberDao.count(student.getEmail()) == 0) { // 강사나 매니저로 등록되지 않았다면,
+    if (memberDao.count(student.getEmail()) == 0) { 
       memberDao.insert(student);
-
-    } else { 
+      
+    } else {
       Member member = memberDao.getOne(student.getEmail());
       student.setMemberNo(member.getMemberNo());
     }
     
     return studentDao.insert(student);
-    
   }
   
   public int delete(int no) throws Exception {
-    
-  if (studentDao.countByNo(no) == 0) {
-    throw new Exception("학생을 찾지 못했습니다.");
-  }
-  
-  int count = studentDao.delete(no);
-
-  if (managerDao.countByNo(no) == 0 && teacherDao.countByNo(no) ==0) {
-    memberDao.delete(no);
-  }
-   return count; // 제거된 카운트
-  
-  }
-  
-  public int update(Student student) throws Exception {
-    
-    if (studentDao.countByNo(student.getMemberNo()) == 0) {
+    if (studentDao.countByNo(no) == 0) {
       throw new Exception("학생을 찾지 못했습니다.");
     }
     
-   memberDao.update(student);
-   
-   return studentDao.update(student);
+    int count = studentDao.delete(no);
+
+    if (managerDao.countByNo(no) == 0 && teacherDao.countByNo(no) == 0) {
+      memberDao.delete(no);
+    }
+    
+    return count;
+  }
+  
+  public int update(Student student) throws Exception {
+    if (studentDao.countByNo(student.getMemberNo()) == 0) {
+      throw new Exception("학생을 찾지 못했습니다.");
+    }
+    memberDao.update(student);
+    return studentDao.update(student);
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

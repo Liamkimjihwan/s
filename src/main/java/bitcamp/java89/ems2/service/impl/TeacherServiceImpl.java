@@ -15,23 +15,21 @@ import bitcamp.java89.ems2.service.TeacherService;
 
 @Service
 public class TeacherServiceImpl implements TeacherService {
-  
   @Autowired MemberDao memberDao;
-  @Autowired TeacherDao teacherDao; 
   @Autowired StudentDao studentDao;
   @Autowired ManagerDao managerDao;
+  @Autowired TeacherDao teacherDao;
   
   public List<Teacher> getList() throws Exception {
-   return teacherDao.getList();
+    return teacherDao.getList();
   }
   
-  public Teacher getDetail(int no) throws Exception{
+  public Teacher getDetail(int no) throws Exception {
     return teacherDao.getOneWithPhoto(no);
-    
   }
+  
   public int add(Teacher teacher) throws Exception {
     
-
     if (teacherDao.count(teacher.getEmail()) > 0) {
       throw new Exception("이메일이 존재합니다. 등록을 취소합니다.");
     }
@@ -43,44 +41,60 @@ public class TeacherServiceImpl implements TeacherService {
       Member member = memberDao.getOne(teacher.getEmail());
       teacher.setMemberNo(member.getMemberNo());
     }
-     return teacherDao.insert(teacher);
+    
+    int count = teacherDao.insert(teacher);
+    
+    if (teacher.getPhotoList().size() > 0) {
+      teacherDao.insertPhoto(teacher);
+    }
+    
+    return count;
   }
   
   public int delete(int no) throws Exception {
-    
     if (teacherDao.countByNo(no) == 0) {
       throw new Exception("강사를 찾지 못했습니다.");
     }
     
-  
-  int count = teacherDao.delete(no);
+    teacherDao.deletePhoto(no);
+    int count = teacherDao.delete(no);
 
-  if (managerDao.countByNo(no) == 0 && studentDao.countByNo(no) ==0) {
-    memberDao.delete(no);
-  }
-   return count; // 제거된 카운트
-  
+    if (studentDao.countByNo(no) == 0 && managerDao.countByNo(no) == 0) {
+      memberDao.delete(no);
+    }
+    
+    return count;
   }
   
   public int update(Teacher teacher) throws Exception {
-    
     if (teacherDao.countByNo(teacher.getMemberNo()) == 0) {
       throw new Exception("강사를 찾지 못했습니다.");
     }
     
-   memberDao.update(teacher);
-   
-   return teacherDao.update(teacher);
-  }
-
-  @Override
-  public int addWithPhoto(Teacher teacher) throws Exception {
+    memberDao.update(teacher);
     
-    return teacherDao.insertWithPhoto(teacher);
-  }
-
-  @Override
-  public int deleteWithPhoto(int no) throws Exception {
-    return teacherDao.deleteWithPhoto(no);
+    int count = teacherDao.update(teacher);
+    teacherDao.deletePhoto(teacher.getMemberNo());
+    
+    if (teacher.getPhotoList().size() > 0) {
+      teacherDao.insertPhoto(teacher);
+    }
+    return count;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
