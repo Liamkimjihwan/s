@@ -150,55 +150,49 @@ img { border: 0;}
     margin-left: 65%;
 }
 
-.object .rec-list-htm,
-.object .like-list-htm{
-/*   top:0;
-  left:0;
-  right:100px; */
-  margin:0 auto; /* border: 1px solid red; */
-  margin-left: 13%;
-  width:100%;
-  height:100%;
-  -webkit-transform:rotateY(180deg);
-          transform:rotateY(180deg);
-  -webkit-backface-visibility:hidden;
-          backface-visibility:hidden;
-  -webkit-transition:all .4s linear;
-  transition:all .4s linear;
+
+.list-type ul {  /* 추천목록 좋아요 목록 바깥 틀 */
+    width: 200px;
+    margin: 0 auto;
+    padding-left: 10%;
+/*     border: 1px solid; */
+}
+.list-type li {
+	padding:3%;
+display: inline-block;
+/* 	    border: 1px solid; */
 }
 
-.list-type .tab{
-  font-size:20px;
-  color:#c0c0c0;
-  margin-right:5%;
-  padding-bottom:1%;
-  margin:0 15px 10px 0;
-  display:inline-block;
-  border-bottom:2px solid transparent;
+#rec-list {
+	margin-right:10px;
+	border-bottom:2px solid blue;
 }
 
-.list-type .rec-list, .object .like-list {
-  display: none;
+#rec-list:hover {
+	border-bottom:2px solid blue;
 }
 
-.list-type .rec-list:checked + .tab{
-  color:#000000;
-  border-color:#1161ee;
+#like-list:hover {
+  border-bottom:2px solid blue;
 }
 
- .list-type .like-list:checked + .tab{
-  color:#000000;
-  border-color:#1161ee;
-}
+/* .object .rec-list-htm, */
+/* .object .like-list-htm{ */
+/*    top:0; */
+/*   left:0; */
+/*   right:100px;  */
+/*   margin:0 auto;  border: 1px solid red;  */
+/*   margin-left: 13%; */
+/*   width:100%; */
+/*   height:100%; */
+/*   -webkit-transform:rotateY(180deg); */
+/*           transform:rotateY(180deg); */
+/*   -webkit-backface-visibility:hidden; */
+/*           backface-visibility:hidden; */
+/*   -webkit-transition:all .4s linear; */
+/*   transition:all .4s linear; */
+/* } */
 
-.list-type .rec-list:checked + .tab + .like-list + .tab + .list-all .rec-list-htm{
-  -webkit-transform:rotate(0);
-          transform:rotate(0);
-}
-.list-type .like-list:checked + .tab + .list-all .like-list-htm{
-  -webkit-transform:rotate(0);
-          transform:rotate(0);
-}
 /* 
 #seed .circle {
   margin:0 2%;
@@ -288,9 +282,10 @@ cursor: pointer;
     } */
     
     .title {
+    width:200px;
     font-family: 'Daum_SemiBold';
     background: radial-gradient(50% 50%, #fff, #fff);
-color: rgba(38, 38, 38, 0.5);
+    color: rgba(38, 38, 38, 0.5);
      text-shadow: 1px 1px 2px #fff, 0 0 0 #000, 1px 1px 2px #fff;
      }
      .title:hover {
@@ -300,13 +295,7 @@ color: rgba(38, 38, 38, 0.5);
      }
   
   
-  
-  
-  
-  
-  
-  
-   .list-form{
+   #list-form{
   color:black;
   width: 100%;
   height: 100%;
@@ -317,18 +306,15 @@ color: rgba(38, 38, 38, 0.5);
   -webkit-transform-style:preserve-3d;
           transform-style:preserve-3d;
 }
-  
-  
-  
+  #all-like-list {
+  display: none;
+  }
   
  /* .all-rec-list {
   width: 100%;
   }
   
-  .all-like-list {
-  display: none;
-  width: 100%;
-  }
+  
   
   .all-like-list, .all-rec-list {
   margin:0 auto; border: 1px solid red;
@@ -360,6 +346,7 @@ color: rgba(38, 38, 38, 0.5);
           transform:rotate(0);
 }  */
      
+     
 .job-all, .all-rec-model, .all-rec-mento, .video-all {
   margin-left: 4%;
   width: 80%;
@@ -367,8 +354,8 @@ color: rgba(38, 38, 38, 0.5);
   
 } 
 
-#title-btn-job, #title-btn-mento, #title-btn-video, #title-btn-model {
-  width:100px;
+.title-btn {
+  width:150px;
       display: inline-block;
     position: relative;
   
@@ -387,7 +374,7 @@ color: rgba(38, 38, 38, 0.5);
    position: relative; 
    margin-top:2%;
 } */
- .rec {
+ .rec { /* 추천 목록들 사진 */
   width:220px;
   display:inline-block;
   height:50%;
@@ -412,7 +399,7 @@ color: rgba(38, 38, 38, 0.5);
      color: black;
     }
     .job-detail p {
-    margin-top:3px;
+    margin-top:3%;
     width:200px;
     font-size:10px;
      filter:alpha(style=2);
@@ -511,10 +498,24 @@ color: rgba(38, 38, 38, 0.5);
    }
    
    .job-btm, .mento-btm, .video-btm {
+   width:110%;
    font-family: 'Daum_SemiBold';
    margin-top:3px;
    margin-left:10px;
    }
+   .job-name {
+   position:absolute;
+   }
+   .job-name-favor input {
+     width:7%;
+   }
+   
+   .favor-btn {
+   margin-left:75%;
+    font-size: 10px;
+    color: lightcoral;
+   }
+   
    #job1, #job2, #job3, #job4, #job5, #job6,
    #mento1, #mento2, #mento3, #mento4, #mento5, #mento6,
    #video1, #video2, #video3, #video4, #video5, #video6
@@ -526,7 +527,7 @@ color: rgba(38, 38, 38, 0.5);
    }
    
    
-    #job-btn, #model-btn, #mento-btn, #video-btn { 
+    .all-btn { 
      width: 80px;
     position: relative;
     display: inline-block;
@@ -535,7 +536,13 @@ color: rgba(38, 38, 38, 0.5);
 /*     margin-left: 710px; */
      
     }
-    #job-effect,  #model-effect, #mento-effect, #video-effect {
+    
+    .job-name img {
+      width: 100%;
+      height: 100%;
+    }
+    
+    .job-effect,  .model-effect, .mento-effect, .video-effect {
     width: 800px;
     height: 250px;
     background: #fff;
@@ -681,7 +688,7 @@ img{
 .jcarousel-control-prev,
 .jcarousel-control-next {
     position: absolute;
-    top: 200px;
+    top: 120px;
     width: 30px;
     height: 30px;
     text-align: center;
