@@ -5,6 +5,7 @@
 <title>MyPage</title>
 <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 <link rel="stylesheet" href="../css/mypage.css">
 <link rel="stylesheet" type="text/css" href="../css/Daum_SemiBold.css">
@@ -27,9 +28,6 @@ web01 - ex9 / 86.html
 87.html -->
 </head>
 <body>
-
-
-
 
 
 
@@ -87,7 +85,17 @@ web01 - ex9 / 86.html
    <div class="job-conts">
      <div class="rec rec-job1" id="job1" style="background-image:url('../image/program.jpg')"></div>
      <div class="job-btm">
-     <div class="job-name-favor"><span class="job-name">프로그래머</span><span class="favor-btn">좋아요<input type="image" src="../image/heart.png"></span></div>
+     <div class="job-name-favor"><span class="job-name">프로그래머</span><span class="favor-name">좋아요<input id="favor-btn1" type="image" src="../image/heart.png" onclick="changeimg.call(this)"></span></div>
+        <div class="like-add popover fade right in" role="tooltip">
+          <div class="arrow" style="top: 50%;"></div>
+          <div class="popover-content"> 좋아요 목록에 추가 되었습니다^^
+          </div>
+          </div>
+          <div class="like-del popover fade right in" role="tooltip">
+          <div class="arrow" style="top: 50%;"></div>
+          <div class="popover-content"> 좋아요 목록에 제거되었습니다.
+          </div>
+          </div>
         
      <div class="job-detail"><p>프로그래머가 갖춰야할 사항은 인내심이다. <br>인내를 가지고 일에 몰두해야 한다.</p></div>
      </div>
@@ -95,14 +103,36 @@ web01 - ex9 / 86.html
      <div class="job-conts">
      <div class="rec rec-job1" id="job2" style="background-image:url('../image/actor.jpg')"></div>
      <div class="job-btm">
-      <div class="job-name-favor"><span class="job-name">영화배우</span><span class="favor-btn">좋아요<input type="image" src="../image/heart.png"></span></div>
+      <div class="job-name-favor"><span class="job-name">프로그래머</span><span class="favor-name">좋아요<input id="favor-btn1" type="image" src="../image/heart.png" onclick="changeimg.call(this)"></span>
+<!--         <div class="like-add popover fade right in" role="tooltip">
+					<div class="arrow" style="top: 50%;"></div>
+					<div class="popover-content"> 좋아요 목록에 추가 되었습니다^^
+					</div>
+					</div>
+					<div class="like-del popover fade right in" role="tooltip">
+					<div class="arrow" style="top: 50%;"></div>
+					<div class="popover-content"> 좋아요 목록에 제거되었습니다.
+					</div>
+					</div> -->
+      
+      </div>
      <div class="job-detail"><p>영화배우가 갖춰야할 사항은 집중력이다. <br>집중력을 가지고 연기에 몰입해야 한다</p></div>
      </div>
      </div>
      <div class="job-conts">
      <div class="rec rec-job1" id="job3" style="background-image:url('../image/teacher.jpg')"></div>
      <div class="job-btm">
-      <div class="job-name-favor"><span class="job-name">선생님</span><span class="favor-btn">좋아요<input type="image" src="../image/heart.png"></span></div>
+      <div class="job-name-favor"><span class="job-name">프로그래머</span><span class="favor-name">좋아요<input id="favor-btn1" type="image" src="../image/heart.png" onclick="changeimg.call(this)"></span></div>
+<!--       <div class="like-add popover fade right in" role="tooltip">
+          <div class="arrow" style="top: 50%;"></div>
+          <div class="popover-content"> 좋아요 목록에 추가 되었습니다^^
+          </div>
+          </div>
+          <div class="like-del popover fade right in" role="tooltip">
+          <div class="arrow" style="top: 50%;"></div>
+          <div class="popover-content"> 좋아요 목록에 제거되었습니다.
+          </div>
+          </div> -->
     <div class="job-detail"><p>선생님이 갖춰야할 사항은 사랑이다. <br>사랑으로 학생을 대해야 한다.</p></div>
      </div>
      </div>
@@ -177,7 +207,6 @@ web01 - ex9 / 86.html
       <div class="mento-btm">
         <div class="mento-name"><span>천지연 개발자</span></div>
        <div class="mento-detail"><p>IT-Front end</p></div>
-       <div class="mento-date"><span>Date:</span><p>2017-02-14</p></div>
        <div class="mento-tag"><span>Tag :</span><p>IT,개발자,컴퓨터,JAVA</p></div>
       </div>
      </div>
@@ -186,7 +215,6 @@ web01 - ex9 / 86.html
       <div class="mento-btm">
        <div class="mento-name"><span>천지연 개발자</span></div>
        <div class="mento-detail"><p>IT-Front</p></div>
-       <div class="mento-date"><span>Date:</span><p>2017-02-14</p></div>
        <div class="mento-tag"><span>Tag :</span><p>IT,개발자,컴퓨터,JAVA</p></div>
       </div>
   </div>
@@ -195,7 +223,6 @@ web01 - ex9 / 86.html
        <div class="mento-btm">
        <div class="mento-name"><span>천지연 개발자</span></div>
        <div class="mento-detail"><p>IT-Front</p></div>
-       <div class="mento-date"><span>Date:</span><p>2017-02-14</p></div>
        <div class="mento-tag"><span>Tag :</span><p>IT,개발자,컴퓨터,JAVA</p></div>
        </div>
   </div>
@@ -204,7 +231,6 @@ web01 - ex9 / 86.html
                <div class="mento-btm">
        <div class="mento-name"><span>천지연 개발자</span></div>
        <div class="mento-detail"><p>IT-Front</p></div>
-       <div class="mento-date"><span>Date:</span><p>2017-02-14</p></div>
        <div class="mento-tag"><span>Tag :</span><p>IT,개발자,컴퓨터,JAVA</p></div>
      </div>
      </div>
@@ -213,7 +239,6 @@ web01 - ex9 / 86.html
                <div class="mento-btm">
        <div class="mento-name"><span>천지연 개발자</span></div>
        <div class="mento-detail"><p>IT-Front</p></div>
-       <div class="mento-date"><span>Date:</span><p>2017-02-14</p></div>
        <div class="mento-tag"><span>Tag :</span><p>IT,개발자,컴퓨터,JAVA</p></div>
      </div>
      </div>
@@ -222,7 +247,6 @@ web01 - ex9 / 86.html
        <div class="mento-btm">
        <div class="mento-name"><span>천지연 개발자</span></div>
        <div class="mento-detail"><p>IT-Front</p></div>
-       <div class="mento-date"><span>Date:</span><p>2017-02-14</p></div>
        <div class="mento-tag"><span>Tag :</span><p>IT,개발자,컴퓨터,JAVA</p></div>
      </div>
      </div>

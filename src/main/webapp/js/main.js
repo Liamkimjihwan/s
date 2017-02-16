@@ -103,7 +103,6 @@ $( function() {
       state = !state;
     });
    
-    var state = true;
     $(document.body).on( "click", ".rec-btn", function() { // 추천목록 눌렀을 때
     	 
     	$("#rec-list").css("border-bottom", "2px solid blue");
@@ -141,8 +140,27 @@ $( function() {
   });*/
 });
 
-
-
+var state = true;
+function changeimg() {// 좋아요 목록 눌렀을 때
+	if(state) {
+		this.setAttribute( "src", "../image/fheart.png" );
+		$("input").css("border", "none");
+	$(".like-del").css("display", "none");
+	$(".like-add").css("display", "block");
+	$(".like-add").addClass('animated fadeOut');
+	$(".like-add").css("animation-delay", "1s");
+	state = false;
+	console.log(state);
+	} else {
+		this.setAttribute( "src", "../image/heart.png" );
+		$(".like-add").css("display", "none");
+		$(".like-del").css("display", "block");
+		$('.like-del').addClass('animated fadeOut');
+		$(".like-del").css("animation-delay", "1s");
+		state = true;
+		console.log(state);
+	}
+};
 
 
 /*function ButtonDown() {  마우스로 눌렀을 때 이미지 변환  
