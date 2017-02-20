@@ -107,6 +107,7 @@ $( function() {
     	 
     	$("#rec-list").css("border-bottom", "2px solid blue");
     	$("#like-list").css("border-bottom", "none");
+	    	$(".rec-btn").css("text-decoration", "none");
 	    $("#all-rec-list").css("display", "block");
         $("#all-like-list").css("display", "none");
 //        $(".all-rec-model, .job-all, .all-rec-mento, video-all").css("display", "inline-block");
@@ -117,6 +118,7 @@ $( function() {
     	
     	$("#like-list").css("border-bottom", "2px solid blue");
     	$("#rec-list").css("border-bottom", "none");
+    	$(".like-btn").css("text-decoration", "none");
 	    $("#all-like-list").css("display", "block");
         $("#all-rec-list").css("display", "none");
 //        $(".all-rec-model, .job-all, .all-rec-mento, video-all").css("display", "inline-block");
