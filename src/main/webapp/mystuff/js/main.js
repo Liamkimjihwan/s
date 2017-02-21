@@ -216,9 +216,29 @@ function ButtonUp() {
 
 	
 	
+$(document).ready(function() {
+	  
+	  $("#touchSlider").touchSlider({
+	    /*
+	    autoplay : {
+	      enable : true,
+	      pauseHover : true,
+	      addHoverTarget : "", // 다른 오버영역 추가 ex) ".someBtn, .someContainer"
+	      interval : 3500
+	    },
+	    */
+	    btn_prev : $("#touchSlider").next().find(".btn_prev"),
+	    btn_next : $("#touchSlider").next().find(".btn_next"),
+	    counter : function (e) {
+	      $("#count").html("current : " + e.current + ", total : " + e.total);
+	    }
+	  });
 	
+});
 	
-	
+$("#touchSlider").touchSlider({
+    page : 2
+});
 	
 	
 	
