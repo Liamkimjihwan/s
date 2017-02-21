@@ -258,6 +258,8 @@ cursor: pointer;
   
 } 
 
+
+
 #all-rec-list .title {
   width:75px;
       display: inline-block;
@@ -371,13 +373,8 @@ cursor: pointer;
      color:#585858;
     }
     
-    .model-detail p {
-    margin-top:3px;
-    margin-bottom:2px;
-    width:200px;
-    font-size:10px;
-     filter:alpha(style=2);
-     color:#585858;
+    .model-detail {
+position:absolute;
     }
     
       .model-date span, .model-tag span  {
@@ -592,22 +589,12 @@ margin-left: 25%;
     overflow: hidden;
 }
 
-<<<<<<< HEAD
-li .model-short {
-	position: relative;
-=======
-.model-short {
-	position: absolute;
->>>>>>> branch 'master' of https://github.com/Liamkimjihwan/s.git
-}
-
    .ul {
     width: 20000em;
     position: relative;
     list-style: none;
     margin: 0;
     padding: 0;
-
 } 
 
  .model-slide {
@@ -939,3 +926,47 @@ position: absolute;
   -webkit-transform: scale(1.5) rotate(12deg);
   transform: scale(1.5) rotate(12deg);
 }
+
+/* slide  */
+        .jssorb01 {
+            position: absolute;
+        }
+        .jssorb01 div, .jssorb01 div:hover, .jssorb01 .av {
+            position: absolute;
+            /* size of bullet elment */
+            width: 12px;
+            height: 12px;
+            filter: alpha(opacity=70);
+            opacity: .7;
+            overflow: hidden;
+            cursor: pointer;
+            border: #000 1px solid;
+        }
+        .jssorb01 div { background-color: gray; }
+        .jssorb01 div:hover, .jssorb01 .av:hover { background-color: #d3d3d3; }
+        .jssorb01 .av { background-color: #fff; }
+        .jssorb01 .dn, .jssorb01 .dn:hover { background-color: #555555; }
+
+
+        .jssora02l, .jssora02r {
+            display: block;
+            position: absolute;
+            /* size of arrow element */
+            width: 55px;
+            height: 55px;
+            cursor: pointer;
+            background: url('img/a02.png') no-repeat;
+            overflow: hidden;
+        }
+        .jssora02l { background-position: -3px -33px; }
+        .jssora02r { background-position: -63px -33px; }
+        .jssora02l:hover { background-position: -123px -33px; }
+        .jssora02r:hover { background-position: -183px -33px; }
+        .jssora02l.jssora02ldn { background-position: -3px -33px; }
+        .jssora02r.jssora02rdn { background-position: -63px -33px; }
+        .jssora02l.jssora02lds { background-position: -3px -33px; opacity: .3; pointer-events: none; }
+        .jssora02r.jssora02rds { background-position: -63px -33px; opacity: .3; pointer-events: none; }
+        
+        
+        
+        
