@@ -7,7 +7,7 @@ body {
 }
 
 * { margin: 0; padding: 0; }
-li {list-style: none;}
+.model-slide {list-style: none;}
 a { text-decoration: none; color: black;}
 img { border: 0;}
 
@@ -593,10 +593,10 @@ margin-left: 25%;
 }
 
 .model-short {
-	position: relative;
+	position: absolute;
 }
 
- .jcarousel ul {
+   .ul {
     width: 20000em;
     position: relative;
     list-style: none;
@@ -605,12 +605,25 @@ margin-left: 25%;
 
 } 
 
- .jcarousel li {
+ .model-slide {
 float: left;
     width:430px;
-    height:230px;
+    height:210px;
     text-align: -webkit-match-parent;
 } 
+
+.model-slide span, strong{
+position: absolute;
+    color: blue;
+    left: 320px;
+    top: 200px;
+    width: 70px;
+    height: 20px;
+}
+.model-slide strong {
+	font-size:15px;
+	left: 250px;
+}
 
 
 .rec-model-title {
