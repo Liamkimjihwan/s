@@ -597,10 +597,15 @@ margin-left: 25%;
     padding: 0;
 } 
 
+.model-btm-box {
+	width:200px;
+	height:50px;
+}
+
  .model-slide {
 float: left;
     width:430px;
-    height:210px;
+    height:230px;
     text-align: -webkit-match-parent;
 } 
 
