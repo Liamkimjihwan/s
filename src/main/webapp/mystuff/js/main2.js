@@ -24,16 +24,15 @@ request(url, function(error, response, html){
     
     });*/
     
-
-//var post = "";
+//var value = "";
  $("div.media__image").each(function(){
-  var value = {"video":""};
+   value = {"video":""};
   value["video"] = $(this).children("a").attr("href"); 
     	console.log(value);
     });
     
     $("img.thumb__image").each(function(){
-    	  var value = {"image":""};
+    	  value = {"image":""};
     	  value["image"] = $(this).attr("src"); 
     	console.log(value);
     });

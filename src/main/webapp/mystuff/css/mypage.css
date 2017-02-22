@@ -546,6 +546,10 @@ margin-left: 25%;
   color:#BDBDBD;
   
 }
+.jcarousel {
+    position: relative;
+    overflow: hidden;
+}
 
  .jcarousel-wrapper .selector {
   width:100%;
@@ -557,8 +561,8 @@ margin-left: 25%;
     margin: 20px auto;
     position: relative;
     border: 10px solid #fff;
-    width: 450px;
-    height: 250px;
+    width: 520px;
+    height: 320px;
     -webkit-border-radius: 5px;
        -moz-border-radius: 5px;
             border-radius: 5px;
@@ -584,10 +588,7 @@ margin-left: 25%;
 
 /** Carousel **/
 
-.jcarousel {
-    position: relative;
-    overflow: hidden;
-}
+
 
    .ul {
     width: 20000em;
@@ -604,8 +605,8 @@ margin-left: 25%;
 
  .model-slide {
 float: left;
-    width:430px;
-    height:230px;
+width: 500px;
+    height: 300px;
     text-align: -webkit-match-parent;
 } 
 
