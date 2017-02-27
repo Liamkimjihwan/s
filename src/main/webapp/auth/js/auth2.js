@@ -1,4 +1,4 @@
-$(function() {
+$(document).ready(function() {
   
   var animating = false,
       submitPhase1 = 1100,
@@ -18,7 +18,7 @@ $(function() {
     elem.append($ripple);
   };
   
-  $(document).on("click", ".login_submit", function(e) {
+  $(document).on("click", ".login__submit", function(e) {
     if (animating) return;
     animating = true;
     var that = this;
@@ -40,7 +40,7 @@ $(function() {
     }, submitPhase1);
   });
   
-  $(document).on("click", ".app_logout", function(e) {
+  $(document).on("click", ".app__logout", function(e) {
     if (animating) return;
     $(".ripple").remove();
     animating = true;
@@ -59,54 +59,12 @@ $(function() {
     }, logoutPhase1);
   });
   
-  $(document).on("click", ".new-sign", function(e) {
-	  $(".sign-in").addClass("animated fadeOutLeft");
-	  $(".sign-up").removeClass("animated fadeOutRight");
-	  $(".sign-up").addClass("animated fadeInRight");
-	$('.sign-up').css("display", "block");
-//	$('.sign-in').css("display", "none");
-	  
-  })
-  
-    $(document).on("click", ".close", function(e) {
-    	$(".sign-up").addClass("animated fadeOutRight");
-    	 $(".sign-in").removeClass("animated fadeOutLeft");
-    	 $(".sign-in").addClass("animated fadeInLeft");
-    	 $('.sign-in').css("display", "block");
-//	$('.sign-up').css("display", "none");
-	  
-  })
-  
-  
 });
 
+$('.toggle').on('click', function() {
+	  $('.sign-up').css("display", "block");
+	});
 
-$(function(){
-	  $('.passIn').keyup(function(){
-	   $('.check').html('');
-	  }); //passIn.keyup
-
-	  $('.passCheck').keyup(function(){
-	   if ($('.passIn').val() != $('.passCheck').val()){
-		   $('.check').html('');
-		   $('.check').removeClass("correct")
-		   $('.check').addClass("incorrect")
-		   $('.check').html("비밀번호가 일치하지않습니다.");
-	   } else {
-		   $('.check').html('');
-		   $('.check').removeClass("incorrect")
-		   $('.check').addClass("correct")
-		   $('.check').html(" OK!! ");
-	   }
-	  }); //passCheck.keyup
-	  
-	 });
-
-
-
-
-
-
-
-
-
+	$('.close').on('click', function() {
+	  $('.container').stop().removeClass('active');
+	});
