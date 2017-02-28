@@ -18,6 +18,7 @@ $(function() {
     elem.append($ripple);
   };
   
+<<<<<<< HEAD
   $(document).on("click", "#submit-btn", function(e) {
 	/*  if ($('#save-email').is(':checked')) {
 		  setCookie('email', $('#email').val(), 30);
@@ -39,6 +40,10 @@ $(function() {
 	  }, 'json');
 	  
    /* if (animating) return;
+=======
+  $(document).on("click", ".login_submit", function(e) {
+    if (animating) return;
+>>>>>>> branch 'master' of https://github.com/Liamkimjihwan/s.git
     animating = true;
     var that = this;
     ripple($(that), e);
@@ -103,7 +108,11 @@ $(function() {
 });
 
 
+<<<<<<< HEAD
 $(function(){ // 비밀번호 재확인하는 스크립
+=======
+$(function(){
+>>>>>>> branch 'master' of https://github.com/Liamkimjihwan/s.git
 	  $('.passIn').keyup(function(){
 	   $('.check').html('');
 	  }); //passIn.keyup

@@ -186,7 +186,11 @@ p.incorrect {
   color: #FDFCFD;
 }
 
+<<<<<<< HEAD
 .login_submit, .signup_submit {
+=======
+.login_submit {
+>>>>>>> branch 'master' of https://github.com/Liamkimjihwan/s.git
   position: relative;
   width: 100%;
   height: 4rem;
@@ -200,8 +204,12 @@ p.incorrect {
   -webkit-transition: width 0.3s 0.15s, font-size 0.1s 0.15s;
   transition: width 0.3s 0.15s, font-size 0.1s 0.15s;
 }
+<<<<<<< HEAD
 .login_submit:after,
 .signup_submit:after {
+=======
+.login_submit:after {
+>>>>>>> branch 'master' of https://github.com/Liamkimjihwan/s.git
   content: "";
   position: absolute;
   top: 50%;

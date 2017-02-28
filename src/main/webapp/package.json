@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "animate.css": "^3.5.2",
     "bootstrap": "^3.3.7",
     "cheerio": "^0.22.0",
     "glidejs": "^2.1.0",
@@ -18,7 +19,12 @@
     "animate.css": "^3.5.2",
     "handlebars": "^4.0.6",
     "request": "^2.79.0",
+<<<<<<< HEAD
     "require": "^2.4.20",
     "blueimp-file-upload": "^9.15.0"
+=======
+    "require": "^2.4.20"
+
+>>>>>>> branch 'master' of https://github.com/Liamkimjihwan/s.git
   }
 }
