@@ -33,7 +33,7 @@ public class AuthControl {
       response.addCookie(cookie);
     }
     
-    Member member = authService.getMemberInfo(email, password, userType);
+    Member member = authService.getMemberInfo(email, password);
         
     if (member == null) {
       response.setHeader("Refresh", "2;url=loginform.do");
