@@ -12,8 +12,6 @@ body {
 a { text-decoration: none; color: black;}
 img { border: 0;}
 
-
-
  
 /*   #seed {
   font-famliy:'Daum_SemiBold';
@@ -211,9 +209,9 @@ cursor: pointer;
           transform-style:preserve-3d;
                   margin-bottom: 10%;
 }
-  #all-like-list {
+/*   #all-like-list {
   display: none;
-  }
+  } */
   
  /* .all-rec-list {
   width: 100%;

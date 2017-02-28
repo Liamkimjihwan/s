@@ -20,7 +20,7 @@ public class AuthJsonControl {
   public AjaxResult login(String email, String password, String userType,
       HttpServletResponse response, HttpSession session, Model model) throws Exception {
     
-    Member member = authService.getMemberInfo(email, password, userType);
+    Member member = authService.getMemberInfo(email, password);
         
     if (member == null) {
       return new AjaxResult(AjaxResult.FAIL, "이메일 또는 암호가 틀리거나, 가입된 회원이 아닙니다.");

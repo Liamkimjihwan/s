@@ -20,7 +20,7 @@ public class AuthServiceImpl implements AuthService {
   @Autowired ManagerDao managerDao;
   @Autowired TeacherDao teacherDao;
   
-  public Member getMemberInfo(String email, String password, String userType) throws Exception {
+  public Member getMemberInfo(String email, String password) throws Exception {
     HashMap<String,String> paramMap = new HashMap<>();
     paramMap.put("email", email);
     paramMap.put("password", password);
@@ -31,14 +31,6 @@ public class AuthServiceImpl implements AuthService {
       return null;
     }
     
-    if (userType.equals(Member.STUDENT)) {
-      return studentDao.getOne(member.getMemberNo());
-      
-    } else if (userType.equals(Member.TEACHER)) {
-      return teacherDao.getOneWithPhoto(member.getMemberNo());
-      
-    } else /*if (userType.equals(Member.MANAGER))*/ {
-      return managerDao.getOne(member.getMemberNo());
-    }
+   return member;
   }
 }

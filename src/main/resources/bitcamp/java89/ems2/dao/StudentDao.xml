@@ -34,6 +34,13 @@
     where s.sno=#{value}
   </select>
   
+    <select id="countAll" resultType="int">
+    select 
+      count(*)
+    from stud s
+      left outer join memb m on s.sno=m.mno
+  </select>
+  
   <select id="getList" resultMap="student-map">
     select 
       m.mno, 
