@@ -16,15 +16,9 @@
     "jquery": "^1.12.4",
     "jquery-ui": "^1.12.1",
     "pgwslideshow": "^2.0.0",
-    "animate.css": "^3.5.2",
     "handlebars": "^4.0.6",
     "request": "^2.79.0",
-<<<<<<< HEAD
     "require": "^2.4.20",
     "blueimp-file-upload": "^9.15.0"
-=======
-    "require": "^2.4.20"
-
->>>>>>> branch 'master' of https://github.com/Liamkimjihwan/s.git
   }
 }
