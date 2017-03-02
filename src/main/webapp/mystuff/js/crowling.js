@@ -1,7 +1,6 @@
 var request = require("request");  
 var cheerio = require("cheerio");  
 var url = "https://www.ted.com/talks?language=ko&sort=newest&topics%5B%5D=architecture";
-var a = cheerio.load(url);
 
 
 
@@ -22,7 +21,6 @@ request(url, function(error, response, html){
         	post["image"] = thumb.attr("src");
         	console.log(post["video"]);
         })
-    
     });*/
     
 //var value = "";
@@ -47,6 +45,7 @@ request(url, function(error, response, html){
     })
     
 });
+console.log(request);
 
 
 /*request(url, function (err, res, html) {
