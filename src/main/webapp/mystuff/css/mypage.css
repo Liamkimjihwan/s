@@ -287,28 +287,17 @@ cursor: pointer;
    margin-top:2%;
 } */
  .rec { /* 추천 목록들 사진 */
-  width:220px;
-  display:inline-block;
-  height:50%;
-  height: 148px;
-  margin-top:2%;
-  margin-left:4.5%;
-  margin-right:3%;
-      bottom: 50px;
+    width: 100%;
+    display: inline-block;
+    height: 50%;
+    height: 148px;
    } 
-   
-   .rec-job1, .rec-job2, .rec-mento1, .rec-mento2,
-   .rec-model1, .rec-model2, 
-   .rec-video1, .rec-video2 {
-     border-radius: 18px;
-   }
-   
+  
    
     .job-conts, .model-conts, .mento-conts, .video-conts {
   position: relative;
    display:inline-block;
-    width: 250px;
-    padding-left: 3px;
+    width: 240px;
     height: 235px;
    
    } 
@@ -322,7 +311,7 @@ cursor: pointer;
    
    }
    
-   .job-conts:hover, .model-conts:hover, .mento-conts:hover, .video-conts:hover,
+/*    .job-conts:hover, .model-conts:hover, .mento-conts:hover, .video-conts:hover,
    .job2-conts:hover, .model2-conts:hover, .mento2-conts:hover, .video2-conts:hover {
    background-color: cornflowerblue;
    opacity:0.7;
@@ -330,7 +319,7 @@ cursor: pointer;
    cursor:pointer;
    z-index:100;
    
-   }
+   } */
     
    
     .job-name span,
@@ -423,11 +412,17 @@ position:absolute;
    
    
    .job-btm, .mento-btm, .video-btm, .model-btm {
-   width:110%;
-   font-family: 'Daum_SemiBold';
-   margin-top:3px;
-   margin-left:10px;
+    width: 110%;
+    font-family: 'Daum_SemiBold';
+    margin-top: -13px;
+    margin-left: 5px;
    }
+   
+   .job-btm {
+     height:100px;
+   }
+   
+   
    .job-name, .mento-name, .video-name {
    position:relative;
    }
@@ -558,9 +553,8 @@ margin-left: 25%;
 
 .jcarousel-wrapper {
     position: relative;
-    border: 10px solid #fff;
-    width: 500px;
-    height: 280px;
+width: 500px;
+    height: 215px;
     -webkit-border-radius: 5px;
        -moz-border-radius: 5px;
             border-radius: 5px;
@@ -604,15 +598,17 @@ position: relative;
     height: 100%;
 }
 
- .model-slide {
+ .model-slide { /* 번호에 영향 */ 
  position:relative;
 float: left;
-    width: 480px;
-    height: 270px;
+    width: 500px;
+    height: 218px;
     text-align: -webkit-match-parent;
 } 
 
-
+.mento-slide {
+	height:300px;
+}
 
 /* model 명언 */
 
@@ -793,11 +789,11 @@ float: left;
 }
 
 .jcarousel-control-prev {
-    left: -10px;
+    left: 4px;
 }
 
 .jcarousel-control-next {
-    right: -10px;
+    right: 6px;
 }
 
 .jcarousel-control-prev:hover span,
@@ -982,16 +978,7 @@ float: left;
 .modal-btn {
     cursor: pointer;
 }
- .job-conts img, .model-conts img, .mento-conts img,
-.job2-conts img, .mento2-conts img, .video2-conts img {
-    border: 0;
-}
-.job-conts img, .model-conts img, .mento-conts img,
-.job2-conts img, .mento2-conts img, .video2-conts img {
-    width: 20px;
-    height: 20px;
-    
-} 
+
     
     
     /* hover 그림자 생기기 */
@@ -1113,4 +1100,9 @@ float: left;
         
         
         
+        
+        .rec-job {
+    height: 92%;
+    width: 99%;
+        }
         
