@@ -1,0 +1,152 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,800);
+@CHARSET "UTF-8";
+body {
+	 font-family: 'Raleway', Arial, sans-serif;
+  margin: 130px auto;
+}
+.ssize {
+  width: 240px !important;
+  height: 220px;
+  border-radius:10px;
+}
+.job-size {
+  position: relative;
+	    display: inline-block;
+	  width: 220px !important;
+  height: 200px;
+}
+
+.msize {
+  display: inline-block;
+  width: 495px;
+  height: 220px;
+}
+.lsize {
+  width: 495px;
+  height: 455px;
+  border: 1px green solid;
+}
+.mystuff {
+  position: relative;
+    position: relative;
+    margin: 5% auto;
+    padding: 0;
+    height: 700px;
+    width: 1265px;
+}
+
+.model-more, .video-more {
+	display:none;
+	position:absolute;
+	
+}
+
+
+.model-btn, .video-btn{
+
+	    float: right;
+    position: relative;
+    right: 0;
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    z-index: 200;
+    background-color: transparent;
+    border: 1px solid red;
+	
+}
+
+
+
+
+.video, .job-size {
+
+border-radius:10px;
+  text-shadow: 0 1px 0 #ccc;
+ 
+}
+
+.video img {
+	border-radius:10px;
+}
+/* 비디오 hover 앞으로 나오는 상태  */
+
+  .video:hover {
+      transform: scale3d(1.1, 1.1, 1.1);
+      z-index:200;
+  cursor:pointer;
+  } 
+
+
+
+
+
+
+
+.job-list {
+	border-radius:10px;
+    position: absolute;
+    width: 760px;
+    height: 240px;
+    top: 457px;
+    left: 500px;
+    padding: 1%;
+}
+#div2 {
+  position: absolute;
+  left: 510px;
+  top: 0;
+}
+#div3 {
+  position: absolute;
+  top: 235px;
+}
+#div4 {
+  position: absolute;
+  top: 235px;
+  left: 255px;
+}
+#div5 {
+  position: absolute;
+  top: 235px;
+  left: 510px;
+}
+#div6 {
+  position: absolute;
+  top: 0px;
+  left: 765px;
+} 
+#div7 {
+  position: absolute;
+  top: 470px;
+  left: 0;
+}
+#div8 {
+  position: absolute;
+  top: 470px;
+  left: 255px;
+}
+#div10 {
+    margin: 0 4.3%;
+}
+
+
+.model-btn:hover, .video-btn {
+	font-size:15px;
+	color:blue;
+}
+
+
+
+/* div.video:hover {
+	position:absolute;
+  width: 260px;
+  height: 250px;
+    z-index: 500;
+} */
+
+
+
+
+
+

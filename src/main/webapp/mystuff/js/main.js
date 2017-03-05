@@ -143,6 +143,150 @@ $( function() {
       document.write("취소를 누르셨군요.");
     }
   });*/
+    
+    $(".hover").mouseleave(
+    	    function () {
+    	      $(this).removeClass("hover");
+    	    }
+    	  );
+    
+  //  
+    $(".model-div").hover(function() { // 추천인물 hover 더보기 
+    	
+    	$(this).css("cursor", "pointer");
+    	$(".model-more").css("display", "inline-block");
+    	
+    })
+        $(".model-div").mouseleave(
+    	    function () {
+    	      $(".model-more").css("display", "none");
+    	    }
+    	  );
+    //
+    
+    
+    //
+    $(".video").hover(function() { // 비디오 hover효과
+    	
+    	$(".video").css("background-color", "rgba(240, 128, 128, 0.27)");
+    	
+    })
+    
+    $(".video").mouseleave(
+    	    function () {
+    	      $(".video").css("background-color", "transparent");
+    	    }
+    	  );
+    //
+    
+    
+    // 추천직업 hover효과
+    $(".job-list").hover(function() {
+    	$(".job-list").css("background", "linear-gradient(90deg, rgba(51, 51, 51, 0.56) 5%, rgba(58, 96, 115, 0.76) 70%)");
+    })
+    
+    $(".job-list").mouseleave(
+    	    function () {
+    	      $(".job-list").css("background-image", "none");
+    	    }
+    	  );
+    
+    
+    
+    // 인물 디테일 페이지.
+    var $play = $('.play'),
+    $detail  = $('.detail'),
+    $movie = $('.movie', $detail),
+    $close = $('.close');
+
+    $('.movies .movie').click(function(){
+    	console.log("dkdkdl");
+    $movie.html($(this).html());
+    $play.appendTo($movie);
+
+    $poster = $('.poster', this).addClass('active');
+
+    $('.poster', $detail).css({
+    top: $poster.position().top,
+    left: $poster.position().left,
+    width: $poster.width(),
+    height: $poster.height()
+    }).data({
+    top: $poster.position().top,
+    left: $poster.position().left,
+    width: $poster.width(),
+    height: $poster.height()
+    })
+
+    $detail.show();
+
+    $('.poster', $detail).delay(10).queue(function(next) {
+    $detail.addClass('ready');
+
+    next();
+    }).delay(100).queue(function(next){
+    $(this).css({
+      top: '-10%',
+      left: '-6%',
+      width: 366,
+      height: 400
+    });
+    next();
+    })
+    })
+
+
+    /*--------------------
+    Close
+    --------------------*/
+    function close(){
+    console.log('asd');
+    $p = $('.detail .poster');
+    console.log($p)
+    $p.css({
+    top: $p.data('top'),
+    left: $p.data('left'),
+    width: $p.data('width'),
+    height: $p.data('height'),
+    })
+    $detail.removeClass('ready').delay(500).queue(function(next){
+    $(this).hide();
+    $poster.removeClass('active');
+    next();
+    });
+    }
+
+    $close.click(close);
+    $('body').click(function(e){
+    $p = $(e.target).parents();
+    if ($p.is('.app')){
+    return false;
+    } else {
+    close();
+    }
+    })
+
+
+    /*--------------------
+    CodePen Thumbnail
+    --------------------*/
+    setTimeout(function(){
+    $('.movie:eq(0)').click();
+    }, 300);
+    setTimeout(function(){
+    close();
+    },1700);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 });
 
 /*var state = true;
@@ -253,58 +397,12 @@ request(url, function (err, res, html) {
   
 });
 
-$.global = new Object();
 
-$.global.item = 1;
-$.global.total = 0;
+// 추천인물 디테일 페이지
 
-$(document).ready(function() {
-	
-	var WindowWidth = $(window).width();
-	var SlideCount = $('#slides li').length;
-	var SlidesWidth = SlideCount * WindowWidth;
-	
-    $.global.item = 0;
-    $.global.total = SlideCount; 
-    
-	$('.slide').css('width',WindowWidth+'px');
-	$('#slides').css('width',SlidesWidth+'px');
 
-   $("#slides li:nth-child(1)").addClass('alive');
-    
-  $('#left').click(function() { Slide('back'); }); 
-  $('#right').click(function() { Slide('forward'); }); 
-        
-  });
 
-function Slide(direction)
-	{
-   
-    if (direction == 'back') { var $target = $.global.item - 1; }
-    if (direction == 'forward') { var $target = $.global.item + 1; }  
-    
-    if ($target == -1) { DoIt($.global.total-1); } 
-    else if ($target == $.global.total) { DoIt(0); }  
-    else { DoIt($target); }
-    
-    
-	}
 
-function DoIt(target)
-  {
-   
-    var $windowwidth = $(window).width();
-	var $margin = $windowwidth * target; 
-    var $actualtarget = target+1;
-    
-    $("#slides li:nth-child("+$actualtarget+")").addClass('alive');
-    
-    $('#slides').css('transform','translate3d(-'+$margin+'px,0px,0px)');	
-    
-    $.global.item = target; 
-    
-  $('#count').html($.global.item+1);
-    
-  }
+
 
 	

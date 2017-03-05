@@ -287,10 +287,10 @@ cursor: pointer;
    margin-top:2%;
 } */
  .rec { /* 추천 목록들 사진 */
-    width: 100%;
+    width: 99.5%;
     display: inline-block;
     height: 50%;
-    height: 148px;
+    height: 160px;
    } 
   
    
@@ -414,8 +414,8 @@ position:absolute;
    .job-btm, .mento-btm, .video-btm, .model-btm {
     width: 110%;
     font-family: 'Daum_SemiBold';
-    margin-top: -13px;
     margin-left: 5px;
+    margin-top:-10px;
    }
    
    .job-btm {
@@ -541,6 +541,8 @@ margin-left: 25%;
   
 }
 .jcarousel {
+	border-radius:10px;
+	padding: 2px;
     position: relative;
     overflow: hidden;
 }
@@ -552,6 +554,7 @@ margin-left: 25%;
 } 
 
 .jcarousel-wrapper {
+	border-radius:10px;
     position: relative;
 width: 500px;
     height: 215px;
@@ -604,7 +607,12 @@ float: left;
     width: 500px;
     height: 218px;
     text-align: -webkit-match-parent;
+    border-radius:10px;
 } 
+
+.model-slide img {
+	border-radius:10px;
+}
 
 .mento-slide {
 	height:300px;
