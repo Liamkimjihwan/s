@@ -151,7 +151,7 @@ $( function() {
     	  );
     
   //  
-    $(".model-div").hover(function() { // 추천인물 hover 더보기 
+   /* $(".model-div").hover(function() { // 추천인물 hover 더보기 
     	
     	$(this).css("cursor", "pointer");
     	$(".model-more").css("display", "inline-block");
@@ -161,7 +161,7 @@ $( function() {
     	    function () {
     	      $(".model-more").css("display", "none");
     	    }
-    	  );
+    	  );*/
     //
     
     
@@ -182,7 +182,7 @@ $( function() {
     
     // 추천직업 hover효과
     $(".job-list").hover(function() {
-    	$(".job-list").css("background", "linear-gradient(90deg, rgba(51, 51, 51, 0.56) 5%, rgba(58, 96, 115, 0.76) 70%)");
+    	$(".job-list").css("background", "radial-gradient(ellipse at top left, rgba(105,155,200,1) 0%,rgba(181,197,216,1) 57%)");
     })
     
     $(".job-list").mouseleave(
@@ -190,6 +190,69 @@ $( function() {
     	      $(".job-list").css("background-image", "none");
     	    }
     	  );
+    
+    
+ /*   //
+    $(".modelBox").hover(function(){
+    	$(".model-box").css({"height":"20px", "width":"20px"});
+    })
+        $(".modelBox").mouseleave(
+    	    function () {
+    	      $(".model-box").css({"height":"0px", "width":"0px"});
+    	    }
+    	  );
+    
+    //
+    */
+    
+    
+    
+    //  추천영상 더보기 버튼.
+    
+    $(".videoBox").hover(function(){
+    	$(".video-box").css({"height":"20px", "width":"20px"});
+    })
+        $(".videoBox").mouseleave(
+    	    function () {
+    	      $(".video-box").css({"height":"0px", "width":"0px"});
+    	    }
+    	  );
+    
+    $(".video-box").hover(function(){
+    	$(this).css({"height":"50px", "width":"50px"});
+    })
+        $(".video-box").mouseleave(
+    	    function () {
+    	      $(this).css({"height":"20px", "width":"20px"});
+    	    }
+    	  );
+    //
+    
+    $(".jobBox").hover(function(){
+    	$(".job-box").css({"height":"20px", "width":"20px"});
+    })
+        $(".jobBox").mouseleave(
+    	    function () {
+    	      $(".job-box").css({"height":"0px", "width":"0px"});
+    	    }
+    	  );
+    
+    $(".job-box").hover(function(){
+    	$(this).css({"height":"50px", "width":"50px"});
+    })
+        $(".job-box").mouseleave(
+    	    function () {
+    	      $(this).css({"height":"20px", "width":"20px"});
+    	    }
+    	  );
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

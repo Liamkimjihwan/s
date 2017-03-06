@@ -4,7 +4,6 @@
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 body {
   font-family:'Daum_SemiBold';
-
 }
 
 * { margin: 0; padding: 0; }
@@ -298,7 +297,7 @@ cursor: pointer;
   position: relative;
    display:inline-block;
     width: 240px;
-    height: 235px;
+    height: 220px;
    
    } 
    
@@ -337,7 +336,7 @@ cursor: pointer;
      color:#585858;
     }
     
-    .mento-detail p {
+    .mento-name-favor p {
     margin-top:3px;
     margin-bottom:2px;
     width:200px;
@@ -346,20 +345,7 @@ cursor: pointer;
      color:#585858;
     }
     
-      .mento-date span, .mento-tag span  {
-     position:absolute;
-     margin-bottom: 2px;
-     
-    font-size:13px;
-     color:black;
-    }
-     .mento-date p, .mento-tag p {
-    margin-top:2px;
-    font-size:10px;
-    margin-bottom:1px;
-    margin-left:50px;
-     color:#585858;
-    }
+
     
     .model-detail {
 position:absolute;
@@ -410,13 +396,24 @@ position:absolute;
     }
     
    
+   .mento-btm {
+    background: linear-gradient(90deg, #69b7eb, #b3dbd3, #f4d6db);
+    display: inline-block;    height: 445px;
+    width: 220%;
+    height: 30%;
+    font-family: 'Daum_SemiBold';
+    margin-top: 10px;
+    border-radius:10px;
+   }
    
-   .job-btm, .mento-btm, .video-btm, .model-btm {
+   .job-btm, .video-btm, .model-btm {
     width: 110%;
     font-family: 'Daum_SemiBold';
     margin-left: 5px;
     margin-top:-10px;
    }
+   
+
    
    .job-btm {
      height:100px;
@@ -439,13 +436,20 @@ position:absolute;
     color: lightcoral;
    }
    
-   .mento-name-favor,
+
    .model-name-favor,
    .job-name-favor,
    .video-name-favor {
    margin-top:5%;
     margin-bottom:2px;
    }
+   
+      .mento-name-favor {
+    display: inline-block;
+    position: absolute;
+    margin-top: 10px;  
+      }
+
    
    #job1, #job2, #job3, #job4, #job5, #job6,
    #mento1, #mento2, #mento3, #mento4, #mento5, #mento6,
@@ -543,10 +547,15 @@ margin-left: 25%;
 .jcarousel {
 	border-radius:10px;
 	padding: 2px;
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
+  
 }
 
+.mt-carousel { /* 멘토 jcarousel */
+background: linear-gradient(135deg, rgba($red,1) 0%,rgba($blue,1) 100%);
+	height: 450px;
+}
  .jcarousel-wrapper .selector {
   width:100%;
   height:100%;
@@ -565,6 +574,11 @@ width: 500px;
        -moz-box-shadow: 0 0 2px #999;
             box-shadow: 0 0 2px #999;
 }
+
+.rec-mt {
+        height: 445px;
+}
+
 
 
 .jcarousel-wrapper .photo-credits {
@@ -601,22 +615,47 @@ position: relative;
     height: 100%;
 }
 
- .model-slide { /* 번호에 영향 */ 
+ .model-slide, .mento-slide { /* 번호에 영향 */ 
  position:relative;
 float: left;
-    width: 500px;
-    height: 218px;
+width: 498px;
+    height: 210px;
     text-align: -webkit-match-parent;
     border-radius:10px;
 } 
 
-.model-slide img {
+ .mento-slide { /* 멘토 슬라이드 */
+ border-radius:10px 10px 0px 0px; 
+/*  border-bottom:3px solid rgba(12, 24, 80, 0.75); */
+height: 368px;
+} 
+
+.model-slide img,
+.map-img {
 	border-radius:10px;
 }
 
-.mento-slide {
-	height:300px;
+.mt-photo{ 
+	  display: inline-block;
+/*     border: 2px solid red; */
+    border-radius: 100%;
+    width: 105px;
+    height: 95px;
+    position: relative;
+    z-index: 2000;
+    top: -45px;
+    left: -3px;
+    padding: 3px;
 }
+
+
+.mt-photo img {
+    border-radius: 100%;
+    width: 95px;
+    height: 85px;
+    position: relative;
+}
+
 
 /* model 명언 */
 
@@ -796,6 +835,11 @@ float: left;
             box-shadow: 0 0 2px #999;
 }
 
+.mt-left, .mt-right {
+	top:200px;
+}
+
+
 .jcarousel-control-prev {
     left: 4px;
 }
@@ -819,8 +863,13 @@ float: left;
 
 .jcarousel-pagination {
     position: absolute;
-    bottom: 0;
+        bottom: 0;
     left: 15px;
+}
+
+.mt-pag {
+	bottom: 80px;
+    left: 415px;
 }
 
 .jcarousel-pagination a {

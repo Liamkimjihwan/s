@@ -35,7 +35,7 @@ body { margin: 0px;}
 #main_header #right {
   display: inline-block;
   position: relative;
-    left: 3%;
+    left: 17%;
         top: -28%;
   overflow: hidden;
       width: 20%;
@@ -50,7 +50,7 @@ body { margin: 0px;}
 #main_header > #main_gnb {
     display: inline-block;
     position: relative;
-    left: -5%;
+    left: 0%;
     top: -20%;
     margin: 0 auto;
 }
