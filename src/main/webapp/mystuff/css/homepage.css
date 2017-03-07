@@ -99,6 +99,7 @@ border-radius:10px;
   left: 510px;
 }
 #div6 {
+	    width: 500px;
 /* 	background: linear-gradient(135deg, #f5515f 0%, #05abe0 100%);  */
   position: absolute;
   top: 0px;
@@ -122,10 +123,6 @@ border-radius:10px;
 	    border-right: 1px solid rgba(255, 0, 0, 0.18);
     border-bottom: 1px solid rgba(255, 0, 0, 0.18);
 }
-
-
-
-
 
 
 

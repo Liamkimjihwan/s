@@ -181,7 +181,7 @@ $( function() {
     
     
     // 추천직업 hover효과
-    $(".job-list").hover(function() {
+/*    $(".job-list").hover(function() {
     	$(".job-list").css("background", "radial-gradient(ellipse at top left, rgba(105,155,200,1) 0%,rgba(181,197,216,1) 57%)");
     })
     
@@ -189,7 +189,7 @@ $( function() {
     	    function () {
     	      $(".job-list").css("background-image", "none");
     	    }
-    	  );
+    	  );*/
     
     
  /*   //
@@ -210,11 +210,11 @@ $( function() {
     //  추천영상 더보기 버튼.
     
     $(".videoBox").hover(function(){
-    	$(".video-box").css({"height":"20px", "width":"20px"});
+    	$(this).children(".video-box").css({"height":"20px", "width":"20px"});
     })
         $(".videoBox").mouseleave(
     	    function () {
-    	      $(".video-box").css({"height":"0px", "width":"0px"});
+    	    	$(this).children(".video-box").css({"height":"0px", "width":"0px"});
     	    }
     	  );
     
@@ -226,14 +226,66 @@ $( function() {
     	      $(this).css({"height":"20px", "width":"20px"});
     	    }
     	  );
-    //
+    
+    
+    // 추천직업 더보기 버튼.
+    
+/*    $(".jobBox").hover(function(){
+    	if (this.parents().hasId("div9")) {
+    		$("#div9").children(".job-box").css({"height":"20px", "width":"20px"});
+    	} else if(this.parents("#div10")) {
+    		$("#div10").children(".job-box").css({"height":"20px", "width":"20px"});
+    	} else {
+    		$("#div11").children(".job-box").css({"height":"20px", "width":"20px"});
+    	}
+    	
+    })
+        $(".jobBox").mouseleave(function () {
+        	if (this.parents().hasId("div9")) {
+        		$("#div9").children(".job-box").css({"height":"0px", "width":"0px"});
+        	} else if(this.parents("#div10")) {
+        		$("#div10").children(".job-box").css({"height":"0px", "width":"0px"});
+        	} else {
+        		$("#div11").children(".job-box").css({"height":"0px", "width":"0px"});
+        	}
+        	
+        });
+    
+    $(".job-box").hover(function(){
+    	$(this).css({"height":"50px", "width":"50px"});
+    })
+        $(".job-box").mouseleave(
+    	    function () {
+    	      $(this).css({"height":"20px", "width":"20px"});
+    	    }
+    	  );*/
+    
+    
+    $(".videoBox").hover(function(){
+    	$(this).children(".video-box").css({"height":"20px", "width":"20px"});
+    })
+        $(".videoBox").mouseleave(
+    	    function () {
+    	    	$(this).children(".video-box").css({"height":"0px", "width":"0px"});
+    	    }
+    	  );
+    
+    $(".video-box").hover(function(){
+    	$(this).css({"height":"50px", "width":"50px"});
+    })
+        $(".video-box").mouseleave(
+    	    function () {
+    	      $(this).css({"height":"20px", "width":"20px"});
+    	    }
+    	  );
+    
     
     $(".jobBox").hover(function(){
-    	$(".job-box").css({"height":"20px", "width":"20px"});
+    	$(this).children(".job-box").css({"height":"20px", "width":"20px"});
     })
         $(".jobBox").mouseleave(
     	    function () {
-    	      $(".job-box").css({"height":"0px", "width":"0px"});
+    	    	$(this).children(".job-box").css({"height":"0px", "width":"0px"});
     	    }
     	  );
     
@@ -343,9 +395,24 @@ $( function() {
     
     
     
+ // 멘토 리스트 페이지
     
-    
-    
+   
+    $(".mt-list").hover(function(){
+    	$(this).css("cursor","pointer");
+  	  $(this).children(".mt-btm").css({"background": "linear-gradient(90deg, rgba(105, 183, 235, 0.35), #b3dbd3, rgba(244, 214, 219, 0.55)"});
+  	  $(this).children(".mt-btm").children(".mt-name").css("display", "inline-block");
+  	$(this).children(".mt-btm").children(".mt-photo").css("top", "-50px");
+  	  
+    })
+      
+    $(".mt-list").mouseleave(
+    	    function () {
+    	     $(this).children(".mt-btm").css("background", "transparent");
+  	  $(this).children(".mt-btm").children(".mt-name").css("display", "none");
+  	$(this).children(".mt-btm").children(".mt-photo").css("top", "-6px");
+    	    }
+    	  );
     
     
     
@@ -456,8 +523,19 @@ request(url, function (err, res, html) {
 //})
 
 
-// IndexSlider
-  
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 });
 
 

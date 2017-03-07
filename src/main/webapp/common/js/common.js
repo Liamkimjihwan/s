@@ -1,4 +1,3 @@
-console.log("dksl");
 $( function() {
 	// header.html을 가져와서 붙인다.
 	$.get('http://localhost:8080/s/common/header.html', function(result) {

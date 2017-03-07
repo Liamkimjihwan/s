@@ -1,4 +1,14 @@
-.mento-list {
+ 
+ 
+ .ssize {
+  width: 240px !important;
+  height: 220px;
+  border-radius:10px;
+    position: absolute;
+  top: 0;
+}
+ 
+ .video-list {
 	padding:auto;
 	width:1265px;
 	
@@ -24,18 +34,6 @@
   box-shadow: inset 0 1px 0px rgba(0, 0, 0, 0.1);
   padding: 20px 28px 0;
   margin: -6px 0 0 0;
-}
-
-
-
-.mt-detail-list {
-    display: block;
-    position: relative;
-    width: 100%;
-    height: 95%;
-/*     border: 1px solid blue; */
-    padding: 1%;
-    -webkit-box-align: center;
 }
 
 .mt-list {
@@ -64,7 +62,6 @@
 	
 }
 
-
 .mt-photo{ 
     border-radius: 100%;
     width: 100px;
@@ -85,7 +82,6 @@
 }
 
    .mt-btm {
-/*    display:none; */
     position: absolute;
      background:transparent;
 /*     background: linear-gradient(90deg, #69b7eb, #b3dbd3, #f4d6db); */
@@ -117,5 +113,54 @@ width: 530px;
     top: 20px;
 	
 }
+
+
+.btn-type {
+	    text-align: center;
+    right: 0;
+    position: absolute;
+    top: -38px;
+    display: inline-block;
+    width: 15%;
+    height: 28px;
+}
+
+.tab:hover {
+	cursor:pointer;
+}
+
+.btn-type button {
+	background-color:transparent;
+	border:transparent;
+	border-bottom:1px solid black;
+}
+
+
+
+.videoBox {
+    border-right: 1px solid rgba(255, 0, 0, 0.18);
+    border-bottom: 1px solid rgba(255, 0, 0, 0.18);
+}
+
+/* .videoBtn {
+	position:absolute;
+}
+ */
+
+.video-like-list {
+    width: 100%;
+    height: 95%;
+    padding: 7px 15px;
+    padding-left: 2%;
+}
+
+.vdoConts {
+	position:relative;
+	display:inline-block;
+	
+}
+
+
+
 
 
