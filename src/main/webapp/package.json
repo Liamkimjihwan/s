@@ -18,8 +18,8 @@
     "handlebars": "^4.0.6",
     "jquery": "^1.12.4",
     "jquery-ui": "^1.12.1",
-    "mysql": "*",
     "pgwslideshow": "^2.0.0",
+    "mysql": "*",
     "request": "^2.79.0",
     "require": "^2.4.20"
   }
