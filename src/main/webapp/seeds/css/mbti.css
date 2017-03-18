@@ -1,0 +1,118 @@
+<style type="text/css">
+
+
+
+
+div {
+
+  margin: 0 0 0.75em 0;
+
+}
+
+
+
+input[id="radio01"] {
+  display: none;
+}
+input[id="radio02"] {
+  display: none;
+}
+input[id="radio03"] {
+  display: none;
+}
+input[id="radio04"] {
+  display: none;
+}
+input[id="radio05"] {
+  display: none;
+}
+input[id="radio06"] {
+  display: none;
+}
+input[id="radio07"] {
+  display: none;
+}
+
+
+
+input[type="radio"] + label {
+
+  color: #292321;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 14px;
+
+}
+
+
+
+input[type="radio"] + label span {
+
+  display: inline-block;
+
+  width: 30px;
+
+  height: 30px;
+
+  margin: -1px 20px 0 0;
+
+  vertical-align: middle;
+
+  cursor: pointer;
+
+  -moz-border-radius: 50%;
+
+  border-radius: 50%;
+
+}
+
+
+input[id="radio01"] + label span {
+  background-color: #30148E;
+}
+input[id="radio02"] + label span {
+  background-color: #000CED;
+}
+input[id="radio03"] + label span {
+  background-color: #6970DC;
+}
+input[id="radio04"] + label span {
+  background-color: #0AE2D3;
+}
+input[id="radio05"] + label span {
+  background-color: #E2DE0A;
+}
+input[id="radio06"] + label span {
+  background-color: #9E4F0C;
+}
+input[id="radio07"] + label span {
+  background-color: #FF8300;
+}
+
+
+
+input[type="radio"]:checked + label span {
+  background-color: #9AD007;
+}
+
+
+
+
+input[type="radio"] + label span,
+
+input[type="radio"]:checked + label span {
+
+  -webkit-transition: background-color 0.4s linear;
+
+  -o-transition: background-color 0.4s linear;
+
+  -moz-transition: background-color 0.4s linear;
+
+  transition: background-color 0.4s linear;
+
+}
+
+
+
+</style>

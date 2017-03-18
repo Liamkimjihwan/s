@@ -2,7 +2,6 @@
 @CHARSET "UTF-8";
 body {
 	 font-family: 'Raleway', Arial, sans-serif;
-  margin: 130px auto;
 }
 .ssize {
   width: 240px !important;
@@ -30,8 +29,7 @@ body {
     position: relative;
     margin: 5% auto;
     padding: 0;
-    height: 700px;
-    width: 1265px;
+/*     width: 1265px; */
 }
 
 .model-more, .video-more {
@@ -39,12 +37,6 @@ body {
 	position:absolute;
 	
 }
-
-
-
-
-
-
 
 .video, .job-size {
 
@@ -64,12 +56,6 @@ border-radius:10px;
   cursor:pointer;
   }  
 
-
-
-
-
-
-
 .job-list {
 	border-radius:10px;
     position: absolute;
@@ -79,47 +65,50 @@ border-radius:10px;
     left: 500px;
     padding: 1%;
 }
-#div2 {
+.section > div:nth-child(1) {
   position: absolute;
   left: 510px;
   top: 0;
 }
-#div3 {
+.section > div:nth-child(2) {
   position: absolute;
   top: 235px;
 }
-#div4 {
+.section > div:nth-child(3) {
   position: absolute;
   top: 235px;
   left: 255px;
 }
-#div5 {
+.section > div:nth-child(4) {
   position: absolute;
   top: 235px;
   left: 510px;
 }
-#div6 {
-	    width: 500px;
-/* 	background: linear-gradient(135deg, #f5515f 0%, #05abe0 100%);  */
-  position: absolute;
-  top: 0px;
-  left: 765px;
-} 
-#div7 {
+.section > div:nth-child(5) {
   position: absolute;
   top: 470px;
   left: 0;
-}
-#div8 {
+} 
+.section > div:nth-child(6) {
   position: absolute;
   top: 470px;
   left: 255px;
+  
+}
+#div8 {
+    width: 500px;
+/*  background: linear-gradient(135deg, #f5515f 0%, #05abe0 100%);  */
+  position: absolute;
+  top: 0px;
+  left: 765px;
+  
+  
 }
 #div10 {
     margin: 0 4.3%;
 }
 
-#div2, #div3, #div4, #div5, #div7, #div8 {
+#div2, #div3, #div4, #div5, #div6, #div7 {
 	    border-right: 1px solid rgba(255, 0, 0, 0.18);
     border-bottom: 1px solid rgba(255, 0, 0, 0.18);
 }
@@ -176,6 +165,15 @@ border-radius:10px;
   opacity: 1;
 }
 
+/* 좋아요 체크 표시 색깔 */
+.checked {
+color: #f94e66;
+}
+
+/* 페이지 버튼 */
+.tool {
+	display: none;
+}
 
 
 
@@ -183,22 +181,6 @@ border-radius:10px;
 
 
 
-
-
-
-
-
-/* div.video:hover {
-	position:absolute;
-  width: 260px;
-  height: 250px;
-    z-index: 500;
-} */
-
-
-/*==================
-  멘토
-===================*/
 
 
 

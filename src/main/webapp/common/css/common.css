@@ -3,11 +3,40 @@
 
 
 /* 초기화 */
-* { margin: 0; padding: 0; }
-li {list-style: none;}
-a { text-decoration: none; color: black;}
-img { border: 0;}
-body { margin: 0px;}
+body { overflow: hidden; }
+
+/* main-frame  */
+
+.container {
+	width: 100vw;
+	height: 100vh;
+	left: -30vw;
+}
+
+.frame-area {
+  width: 90vw;
+  height: 90vh;
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  border: 3px solid; 
+}
+
+.frame-center {
+  padding: 0 4vw;
+}
+
+.frame-left {
+	left: -70vw;
+}
+
+.frame-right {
+	right: -70vw;
+}
+
+.frame-none {
+  display: none;
+}
 
 /* 헤더 영역 CSS  */
 #con_header {
@@ -18,9 +47,9 @@ body { margin: 0px;}
 
 #wrap_header {
   width:100%;
-background-color: rgba(89, 155, 179, 0.5);
+  background-color: rgba(89, 155, 179, 0.5);
   position:fixed;
-  z-index:9999;
+  z-index:9999;Out
 }
 
 #main_header {
@@ -35,7 +64,7 @@ background-color: rgba(89, 155, 179, 0.5);
 #main_header #right {
   display: inline-block;
   position: relative;
-    left: 17%;
+    left: 3%;
         top: -28%;
   overflow: hidden;
       width: 20%;
@@ -50,7 +79,7 @@ background-color: rgba(89, 155, 179, 0.5);
 #main_header > #main_gnb {
     display: inline-block;
     position: relative;
-    left: 0%;
+    left: -5%;
     top: -20%;
     margin: 0 auto;
 }
@@ -120,14 +149,14 @@ h3 {
 }
 
 
-.user-info {
-/* 	border: 2px solid red; */
+/* .user-info {
+	border: 2px solid red;
     display: inline-block;
     width: 40%;
     height: 100%;
     left: 42%;
     overflow: hidden;
-}
+} */
 
 #user-phot img {
 /*     border: 2px solid red; */

@@ -5,15 +5,17 @@ import java.io.Serializable;
 public class Member implements Serializable {
   private static final long serialVersionUID = 1L;
   
-  public static final String STUDENT = "student";
-  public static final String TEACHER = "teacher";
-  public static final String MANAGER = "manager";
+  public static final String MENTEE = "mentee";
+  public static final String MENTO = "mento";
   
   protected int memberNo;
-  protected String name;
-  protected String tel;
   protected String email;
+  protected String name;
+  protected int age;
   protected String password;
+  protected String photoPath;
+  //protected Object image;
+  
   
   public int getMemberNo() {
     return memberNo;
@@ -27,11 +29,11 @@ public class Member implements Serializable {
   public void setName(String name) {
     this.name = name;
   }
-  public String getTel() {
-    return tel;
+  public int getAge() {
+    return age;
   }
-  public void setTel(String tel) {
-    this.tel = tel;
+  public void setAge(int age) {
+    this.age = age;
   }
   public String getEmail() {
     return email;
@@ -45,6 +47,22 @@ public class Member implements Serializable {
   public void setPassword(String password) {
     this.password = password;
   }
+  public String getPhotoPath() {
+    return photoPath;
+  }
+  public void setPhotoPath(String photoPath) {
+    this.photoPath = photoPath;
+  }
+  /*public Object getImage() {
+    return image;
+  }
+  public void setImage(Object image) {
+    this.image = image;
+  }*/
   
-  
+  @Override
+  public String toString() {
+    return "Member [memberNo=" + memberNo + ", name=" + name + ", age=" + age + ", email=" + email + ", password="
+        + password + ", photoPath=" + photoPath + "]";
+  }
 }

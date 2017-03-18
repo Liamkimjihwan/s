@@ -1,7 +1,278 @@
- 
+
+
+
+
+var currPageNo = 1;
+var pageSize = 5;
+var sno = 5;
 $( function() { 
+    
+	
+	$.getJSON(serverRoot + '/video/list.json', 
+		    {
+			  "pageNo": currPageNo,
+			  "pageSize": pageSize,
+			  "sno": sno
+			}, function(ajaxResult) {
+		      var status = ajaxResult.status;
+		      if (status != "success") return;
+		  
+		      var list = ajaxResult.data.list;
+		      $.each(list, function(k, v) {
+		    	  $.getJSON(serverRoot + '/video/isLike.json', 
+		    		{
+		    		  "cono": v.contentsNo,
+		    		  "sno": sno
+		    		}, function(ajaxResult) {
+		  		      var status = ajaxResult.status;
+				      if (status != "success") return;
+				      
+				      var isLike = ajaxResult.data.isLike;
+				      
+				      if (isLike == 1) {
+				    	  list[k].isLike = true;
+				      } else {
+				    	  list[k].isLike = false;
+				      }
+				      
+				      /*console.log(list[k].isLike);*/
+//				      list[k].isLike = true;
+//				      console.log(list);
+//				      console.log("test02" + typeof list[k].isLike === true);
+				      /*console.log(typeof list[k].isLike == "false");*/
+				      
+				      /*console.log(list);
+		      for (var i in list) {
+		    	  console.log(i,'번째 isLike = ',list[i].isLike)
+		    	  if (list[i].isLike) {
+		    		  $('.btn.heart').addClass('checked')
+		    	  }
+		      }*/
+				      var section = $('.section');
+				      var template = Handlebars.compile($('#trTemplate').html());
+				      section.html(template({"list": list}));
+//				      console.log(list);
+		    		});
+		    	  
+		    	  
+		      });
+
+
+		      /*loadList(currPageNo,pageSize,sno);
+		  	function loadList(pageNo, pageSize, sno) {
+				$.getJSON(serverRoot + '/videoLike/list.json', 
+				    {
+					  "pageNo": pageNo,
+					  "pageSize": pageSize,
+					  "sno": sno
+					}, 
+					function(ajaxResult) {
+					      var status = ajaxResult.status;
+					      if (status != "success")
+					        return;
+					      
+					    var like = ajaxResult.data.list;
+					     console.log(like);*/
+					     
+/*		  	var isLike = {};
+	  		for (var i = 0; i < like.length; i++) {
+	  			if (like[i].contentsNo == list[i].contentsNo) {
+	  				return options.fn(this);
+	  			} else {
+	  				return options.inverse(this);
+	  			}
+	  		}
+			Handlebars.registerHelper('isLike', function(options) {
+			  if () {
+			    return options.fn(this);
+			  } else {
+			    return options.inverse(this);
+			  }
+			});
+		  	
+		  	*                {{#if isLike}}
+     <a href="#" class="btn heart checked"></a>
+    {{else}}
+      <a href="#" class="btn heart"></a>
+    {{/if}}
+		  	*/
+
+		      
+		  	
+		      
+		      
+		      
+		      
+		      
+		  	
+		  	// 좋아요 버튼 눌렀을 때
+		  	
+		  	$(document.body).on( "click", ".section .buttonHolder", function() {// 좋아요 버튼 눌렀을 때
+		  		event.preventDefault();
+		  		var curNo = $(this).attr("data-no");
+		  		
+		  		
+		  		if($(this).children(".btn").hasClass("checked")) {
+		  			$(this).children(".btn").removeClass("checked");
+		  			$(this).children(".btn").css("color","black");
+		  			$.post(serverRoot + '/like/delete.json?curNo=' + curNo, function(ajaxResult) {
+		  				if (ajaxResult.status != "success") {
+		  					alert(ajaxResult.data);
+		  					return;
+		  				}
+		  				console.log("삭제했다.");
+		  			}, 'json');
+		  		} else {
+		  			$(this).children(".btn").addClass("checked");
+		  			$(this).children(".checked").css("color","#f94e66");
+		  			
+		  			$.post(serverRoot + '/like/add.json?curNo=' + curNo + '&sno=' + sno, function(ajaxResult) {
+		  				if (ajaxResult.status != "success") {
+		  					alert(ajaxResult.data);
+		  					return;
+		  				}
+		  				console.log("했다.");
+		  			}, 'json');
+		  		}	
+		  	});  
+
 	
 	
+//	멘토 슬라이드 
+	
+	$.getJSON(serverRoot + '/plan/list.json',
+			 {
+		  "pageNo": currPageNo,
+		  "pageSize": pageSize,
+		  "sno": sno
+		},
+		    function(ajaxResult) {
+		      var status = ajaxResult.status;
+		      if (status != "success")
+		        return;
+		      
+		  
+		      var list = ajaxResult.data.list;
+//		      console.log("멘토");
+//		      console.log(list);
+		      countLike();
+		      
+		      function countLike() {
+		      $.each(list, function(k, v) {
+		    	  $.getJSON(serverRoot + '/video/isLike.json', 
+		    		{
+		    		  "cono": v.contentsNo,
+		    		  "sno": sno
+		    		}, function(ajaxResult) {
+		  		      var status = ajaxResult.status;
+				      if (status != "success") return;
+				      
+				      var isLike = ajaxResult.data.isLike;
+				      
+				      if (isLike == 1) {
+				    	  list[k].isLike = true;
+				      } else {
+				    	  list[k].isLike = false;
+				      }
+
+				      
+				      var section = $('.mt-carousel > .ul');
+				      var template = Handlebars.compile($('#mentoList').html());
+				      section.html(template({"list": list}));
+//				      console.log(list);
+				      jcarousels();
+		    		});
+		    	  
+		    	  
+		      });
+		      }
+
+		  });  
+	
+	
+	// mystuff 파일 업로드
+
+	
+
+	
+	
+	
+	
+	
+	
+	
+		        // 좋아요 버튼 눌렀을 때
+		        
+		        $(document.body).on( "click", ".ul .buttonHolder", function() {// 좋아요 버튼 눌렀을 때
+		        	 event.preventDefault();
+		        	 var curNo = $(this).attr("data-no");
+				        var sno = 5;
+				        
+		        	if($(this).children(".btn").hasClass("checked")) {
+		        		$(this).children(".btn").removeClass("checked");
+		        		$(this).children(".btn").css("color","black");
+		                $.post(serverRoot + '/like/delete.json?curNo=' + curNo, function(ajaxResult) {
+				        	  if (ajaxResult.status != "success") {
+				    	          alert(ajaxResult.data);
+				    	          return;
+				    	      }
+				        	  console.log("삭제했다.");
+				          }, 'json');
+		        	} else {
+		        		$(this).children(".btn").addClass("checked");
+		                $(this).children(".checked").css("color","#f94e66");
+				          
+		                $.post(serverRoot + '/like/add.json?curNo=' + curNo + '&sno=' + sno, function(ajaxResult) {
+				        	  if (ajaxResult.status != "success") {
+				    	          alert(ajaxResult.data);
+				    	          return;
+				    	      }
+				        	  console.log("했다.");
+				          }, 'json');
+		                
+		                
+		        	}
+		        })
+			})
+
+
+
+	
+	
+	
+    function jcarousels() {
+		$('.jcarousel').jcarousel();
+
+        $('.jcarousel-control-prev')
+            .on('jcarouselcontrol:active', function() {
+                $(this).removeClass('inactive');
+            })
+            .on('jcarouselcontrol:inactive', function() {
+                $(this).addClass('inactive');
+            })
+            .jcarouselControl({
+                target: '-=1'
+            });
+
+        $('.jcarousel-control-next')
+            .on('jcarouselcontrol:active', function() {
+                $(this).removeClass('inactive');
+            })
+            .on('jcarouselcontrol:inactive', function() {
+                $(this).addClass('inactive');
+            })
+            .jcarouselControl({
+                target: '+=1'
+            });
+        $('.jcarousel-pagination')
+            .on('jcarouselpagination:active', 'a', function() {
+                $(this).addClass('active');
+            })
+            .on('jcarouselpagination:inactive', 'a', function() {
+                $(this).removeClass('active');
+            })
+         .jcarouselPagination();
+    };
 	
 	
     var state = true;
@@ -28,84 +299,6 @@ $( function() {
       state = !state;
     });
     
-    var state = true;
-    $(document.body).on( "click", ".model-more", function() { // 추천직업 더 보기
-      if ( state ) {
-    	  $(".job-all, .video-all, .all-rec-mento").show().slideUp();
-  	    $(".model2-conts").hide().slideDown();
-	    $(".model2-conts").css("display", "inline-block");
-	    
-        $( ".model-effect" ).animate({
-          backgroundColor: "#BDBDBD",
-          color: "#fff",
-          height: "500px"
-        }, 1000 );
-        $(".all-rec-mento, .job-all, .video-all").css("display", "none");
-      } else {
-    	  $(".all-rec-mento, .job-all, .video-all").hide().slideDown(1200);
-    	  $(".model2-conts").show().slideUp();
-  	    $(".model2-conts").css("display", "none");
-        $( ".model-effect" ).animate({
-          backgroundColor: "#fff",
-          color: "#000",
-          height: "250px"
-        }, 1000 );
-        $(".all-rec-mento, .job-all, .video-all").css("display", "inline-block");
-      }
-      state = !state;
-    });
-
-    var state = true;
-    $(document.body).on( "click", ".mento-more", function() { // 멘토 더 보기 눌렀을 때
-      if ( state ) {
-    	  $(".all-rec-model, .job-all, .video-all").show().slideUp();
-  	    $(".mento2-conts").hide().slideDown();
-	    $(".mento2-conts").css("display", "inline-block");
-	    
-        $( ".mento-effect" ).animate({
-          backgroundColor: "#BDBDBD",
-          color: "#fff",
-          height: "500px"
-        }, 1000 );
-        $(".all-rec-model, .job-all, .video-all").css("display", "none");
-      } else {
-    	  $(".all-rec-model, .job-all, .video-all").hide().slideDown(1200);
-    	  $(".mento2-conts").show().slideUp();
-  	    $(".mento2-conts").css("display", "none");
-        $( ".mento-effect" ).animate({
-          backgroundColor: "#fff",
-          color: "#000",
-          height: "250px"
-        }, 1000 );
-        $(".all-rec-model, .job-all, .video-all").css("display", "inline-block");
-      }
-      state = !state;
-    });
-
-    var state = true;
-    $(document.body).on( "click", ".video-more", function() { // 추천 영상 더보기 눌렀을 때
-      if ( state ) {
-  	    $(".video2-conts").hide().slideDown();
-	    $(".video2-conts").css("display", "inline-block");
-        $( ".video-effect" ).animate({
-          backgroundColor: "#BDBDBD",
-          color: "#fff",
-          height: "500px"
-        }, 1000 );
-        $(".all-rec-model, .job-all, .all-rec-mento").css("display", "none");
-      } else {
-    	  $(".all-rec-model, .job-all, .all-rec-mento").hide().slideDown(1500);
-	  $(".video2-conts").show().slideUp();
-  	    $(".video2-conts").css("display", "none");
-        $( ".video-effect" ).animate({
-          backgroundColor: "#fff",
-          color: "#000",
-          height: "250px"
-        }, 1000 );
-        $(".all-rec-model, .job-all, .all-rec-mento").css("display", "inline-block");
-      }
-      state = !state;
-    });
    
     $(document.body).on( "click", ".rec-btn", function() { // 추천목록 눌렀을 때
     	 
@@ -129,43 +322,13 @@ $( function() {
    
     });
     
-    
-  /*  $(document.body).on( "click", ".favor-btn", function() {
-    
-    var con_test = confirm("어떤 값이 나올까요. 확인을 눌러보세요.");
-    if(con_test == true)
-    { 
-    	function onclick() {
-        this.setAttribute( "src", "../fheart.png" );
-    }
-    }
-    else if(con_test == false) {
-      document.write("취소를 누르셨군요.");
-    }
-  });*/
-    
+
     $(".hover").mouseleave(
     	    function () {
     	      $(this).removeClass("hover");
     	    }
     	  );
     
-  //  
-   /* $(".model-div").hover(function() { // 추천인물 hover 더보기 
-    	
-    	$(this).css("cursor", "pointer");
-    	$(".model-more").css("display", "inline-block");
-    	
-    })
-        $(".model-div").mouseleave(
-    	    function () {
-    	      $(".model-more").css("display", "none");
-    	    }
-    	  );*/
-    //
-    
-    
-    //
     $(".video").hover(function() { // 비디오 hover효과
     	
     	$(".video").css("background-color", "rgba(240, 128, 128, 0.27)");
@@ -180,86 +343,8 @@ $( function() {
     //
     
     
-    // 추천직업 hover효과
-/*    $(".job-list").hover(function() {
-    	$(".job-list").css("background", "radial-gradient(ellipse at top left, rgba(105,155,200,1) 0%,rgba(181,197,216,1) 57%)");
-    })
-    
-    $(".job-list").mouseleave(
-    	    function () {
-    	      $(".job-list").css("background-image", "none");
-    	    }
-    	  );*/
-    
-    
- /*   //
-    $(".modelBox").hover(function(){
-    	$(".model-box").css({"height":"20px", "width":"20px"});
-    })
-        $(".modelBox").mouseleave(
-    	    function () {
-    	      $(".model-box").css({"height":"0px", "width":"0px"});
-    	    }
-    	  );
-    
-    //
-    */
-    
-    
     
     //  추천영상 더보기 버튼.
-    
-    $(".videoBox").hover(function(){
-    	$(this).children(".video-box").css({"height":"20px", "width":"20px"});
-    })
-        $(".videoBox").mouseleave(
-    	    function () {
-    	    	$(this).children(".video-box").css({"height":"0px", "width":"0px"});
-    	    }
-    	  );
-    
-    $(".video-box").hover(function(){
-    	$(this).css({"height":"50px", "width":"50px"});
-    })
-        $(".video-box").mouseleave(
-    	    function () {
-    	      $(this).css({"height":"20px", "width":"20px"});
-    	    }
-    	  );
-    
-    
-    // 추천직업 더보기 버튼.
-    
-/*    $(".jobBox").hover(function(){
-    	if (this.parents().hasId("div9")) {
-    		$("#div9").children(".job-box").css({"height":"20px", "width":"20px"});
-    	} else if(this.parents("#div10")) {
-    		$("#div10").children(".job-box").css({"height":"20px", "width":"20px"});
-    	} else {
-    		$("#div11").children(".job-box").css({"height":"20px", "width":"20px"});
-    	}
-    	
-    })
-        $(".jobBox").mouseleave(function () {
-        	if (this.parents().hasId("div9")) {
-        		$("#div9").children(".job-box").css({"height":"0px", "width":"0px"});
-        	} else if(this.parents("#div10")) {
-        		$("#div10").children(".job-box").css({"height":"0px", "width":"0px"});
-        	} else {
-        		$("#div11").children(".job-box").css({"height":"0px", "width":"0px"});
-        	}
-        	
-        });
-    
-    $(".job-box").hover(function(){
-    	$(this).css({"height":"50px", "width":"50px"});
-    })
-        $(".job-box").mouseleave(
-    	    function () {
-    	      $(this).css({"height":"20px", "width":"20px"});
-    	    }
-    	  );*/
-    
     
     $(".videoBox").hover(function(){
     	$(this).children(".video-box").css({"height":"20px", "width":"20px"});
@@ -301,13 +386,6 @@ $( function() {
     
     
     
-    
-    
-    
-    
-    
-    
-    
     // 인물 디테일 페이지.
     var $play = $('.play'),
     $detail  = $('.detail'),
@@ -315,39 +393,38 @@ $( function() {
     $close = $('.close');
 
     $('.movies .movie').click(function(){
-    	console.log("dkdkdl");
-    $movie.html($(this).html());
-    $play.appendTo($movie);
+//    	console.log("dkdkdl");
+      
+      $movie.html($(this).html());
+      $play.appendTo($movie);
 
-    $poster = $('.poster', this).addClass('active');
+      $poster = $('.poster', this).addClass('active');
 
     $('.poster', $detail).css({
-    top: $poster.position().top,
-    left: $poster.position().left,
-    width: $poster.width(),
-    height: $poster.height()
-    }).data({
-    top: $poster.position().top,
-    left: $poster.position().left,
-    width: $poster.width(),
-    height: $poster.height()
+    	
+	    top: $poster.position().top,
+	    left: $poster.position().left,
+	    width: $poster.width(),
+	    height: $poster.height()
+	    }).data({
+	    top: $poster.position().top,
+	    left: $poster.position().left,
+	    width: $poster.width(),
+	    height: $poster.height()
+	    
     })
 
     $detail.show();
 
     $('.poster', $detail).delay(10).queue(function(next) {
-    $detail.addClass('ready');
-
-    next();
+      $detail.addClass('ready');
+      
+      next();
     }).delay(100).queue(function(next){
-    $(this).css({
-      top: '-10%',
-      left: '-6%',
-      width: 366,
-      height: 400
-    });
+    	
+    $(this).css({ top: '-10%', left: '-6%',  width: 366, height: 400 });
     next();
-    })
+     })
     })
 
 
@@ -355,9 +432,9 @@ $( function() {
     Close
     --------------------*/
     function close(){
-    console.log('asd');
+//    console.log('asd');
     $p = $('.detail .poster');
-    console.log($p)
+//    console.log($p)
     $p.css({
     top: $p.data('top'),
     left: $p.data('left'),
@@ -392,156 +469,39 @@ $( function() {
     close();
     },1700);
     
-    
-    
-    
  // 멘토 리스트 페이지
-    
    
-    $(".mt-list").hover(function(){
-    	$(this).css("cursor","pointer");
-  	  $(this).children(".mt-btm").css({"background": "linear-gradient(90deg, rgba(105, 183, 235, 0.35), #b3dbd3, rgba(244, 214, 219, 0.55)"});
-  	  $(this).children(".mt-btm").children(".mt-name").css("display", "inline-block");
-  	$(this).children(".mt-btm").children(".mt-photo").css("top", "-50px");
+      $(".mt-list").hover(function(){
+	       $(this).css("cursor","pointer");
+	   	   $(this).children(".mt-btm").css({"background": "linear-gradient(90deg, rgba(105, 183, 235, 0.35), #b3dbd3, rgba(244, 214, 219, 0.55)"});
+	   	   $(this).children(".mt-btm").children(".mt-name").css("display", "inline-block");
+	  	   $(this).children(".mt-btm").children(".mt-photo").css("top", "-50px");
   	  
-    })
+      })
       
     $(".mt-list").mouseleave(
     	    function () {
     	     $(this).children(".mt-btm").css("background", "transparent");
-  	  $(this).children(".mt-btm").children(".mt-name").css("display", "none");
-  	$(this).children(".mt-btm").children(".mt-photo").css("top", "-6px");
+        	 $(this).children(".mt-btm").children(".mt-name").css("display", "none");
+  	         $(this).children(".mt-btm").children(".mt-photo").css("top", "-15px");
     	    }
     	  );
-    
-    
-    
-    
+      
+      
+      $("body").tooltip({   
+    	    selector: "[data-toggle='tooltip']",
+    	    container: "body"
+    	  })
+    	    //Popover, activated by clicking
+    	    .popover({
+    	    selector: "[data-toggle='popover']",
+    	    container: "body",
+    	    html: true
+    	  });
+    	  //They can be chained like the example above (when using the same selector).
+    	  
+
 });
-
-/*var state = true;
-function changeimg() {// 좋아요 버튼 눌렀을 때
-	if(state) {
-		this.setAttribute( "src", "../image/fheart.png" );
-	$(".like-del").css("display", "none");
-	$(".like-add").css("display", "block");
-	$(".like-add").addClass('animated fadeOut');
-	$(".like-add").css("animation-delay", "1s");
-	} else {
-		this.setAttribute( "src", "../image/heart.png" );
-		$(".like-add").css("display", "none");
-		$(".like-del").css("display", "block");
-		$('.like-del').addClass('animated fadeOut');
-		$(".like-del").css("animation-delay", "1s");
-	}
-	state = !state;
-};*/
-
-
-/*function ButtonDown() {  마우스로 눌렀을 때 이미지 변환  
- * 
- * onmousedown="ButtonDown.call( this )" onmouseup="ButtonUp.call( this )"
- * => input 태그에 삽입
- * 
-    this.setAttribute("src", "../image/fheart.png");
-}
-
-function ButtonUp() {
-    this.setAttribute( "src", "../image/heart.png" );
-}
-*/
-
-	
-(function($) { // 슬라이드 쇼
-    $(function() {
-        $('.jcarousel').jcarousel();
-
-        $('.jcarousel-control-prev')
-            .on('jcarouselcontrol:active', function() {
-                $(this).removeClass('inactive');
-            })
-            .on('jcarouselcontrol:inactive', function() {
-                $(this).addClass('inactive');
-            })
-            .jcarouselControl({
-                target: '-=1'
-            });
-
-        $('.jcarousel-control-next')
-            .on('jcarouselcontrol:active', function() {
-                $(this).removeClass('inactive');
-            })
-            .on('jcarouselcontrol:inactive', function() {
-                $(this).addClass('inactive');
-            })
-            .jcarouselControl({
-                target: '+=1'
-            });
-
-        $('.jcarousel-pagination')
-            .on('jcarouselpagination:active', 'a', function() {
-                $(this).addClass('active');
-            })
-            .on('jcarouselpagination:inactive', 'a', function() {
-                $(this).removeClass('active');
-            })
-            .jcarouselPagination();
-    });
-})(jQuery);
-
-
-var request = require("request");  
-var cheerio = require("cheerio");  
-var url = "https://www.ted.com/talks?language=ko";
-
-request(url, function (err, res, html) {
-    if (!err) {
-        var $ = cheerio.load(html);
-        
-        // 블로그 title 정보 가져오기
-        $(".entry-title > a").each(function () {
-        	console.log(this);
-            var post = {"title": "", "link": "", "summary": "", "category": []};
-            var data = $(this);
-            
-            post["title"] = data.text();
-            post["link"] = data.attr("href");
-        });
-        
-        // 블로그 요약 정보 가져오기
-        $(".entry-summary > p").each(function (i) {
-            // do something
-        })
- 
-        // 블로그 카테고리 가져오기
-        $(".entry-categories").each(function (i) {
-            $(this).children('a').each(function () {
-                // do something
-            });
-        })
-    }
-//})
-
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-});
-
-
-// 추천인물 디테일 페이지
-
-
 
 
 

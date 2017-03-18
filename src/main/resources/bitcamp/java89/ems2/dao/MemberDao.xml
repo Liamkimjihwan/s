@@ -7,55 +7,100 @@
 
   <resultMap type="member" id="member-map">
     <id     column="mno"        property="memberNo"/>
-    <result column="name"       property="name"/>
     <result column="email"      property="email"/>
+    <result column="name"       property="name"/>
     <result column="pwd"        property="password"/>
-    <result column="tel"        property="tel"/>
+    <result column="age"        property="age"/>
+    <result column="mimg"       property="photoPath"/>
   </resultMap>
   
-  <select id="count" parameterType="string" resultType="int">
-    select count(*) from memb where email=#{value}
+<!--   <select id="getList" resultMap="member-map">
+    select 
+      mno, 
+      email, 
+      name, 
+      age
+    from memb
   </select>
   
-  <select id="getOne" parameterType="string" resultMap="member-map">
+  <select id="count" parameterType="string" resultType="int">
+    select count(*) 
+    from memb 
+    where email=#{value}
+  </select>
+  
+  <select id="countByEmailPassword" parameterType="map" resultType="int">
+    select count(*) 
+    from memb 
+    where email=#{email} 
+      and pwd=password(#{password})
+  </select>
+  
+  <insert id="insert" parameterType="member" 
+          useGeneratedKeys="true" keyColumn="mno" keyProperty="memberNo">
+    insert into memb(email, name, age, pwd, path)
+    values(#{email}, #{name}, #{age}, password(#{password}),"default.jpg")
+  </insert> 
+  
+  
+  
+  <delete id="delete" parameterType="int">
+    delete from memb where mno=#{value}
+  </delete>
+  
+  <select id="getOneByNo" parameterType="int" resultMap="member-map">
+    select 
+      mno,
+      email, 
+      name, 
+      age,
+      path
+   from memb
+   where mno=#{value}
+  </select> -->
+  
+  <select id="getOne" parameterType="int" resultMap="member-map">
     select 
       mno, 
       name, 
-      tel, 
-      email
-    from memb
-    where email=#{value}
+      age,
+      mimg
+    from membs
+    where mno=#{memberNo}
   </select>
+  
+   <update id="update" parameterType="member">
+    update membs set
+      mimg=#{photoPath} 
+    where mno=#{memberNo}
+  </update> 
   
   <select id="getOneByEmailPassword" parameterType="map" resultMap="member-map">
     select 
       mno, 
       name, 
-      tel, 
-      email
-    from memb
+      age, 
+      email,
+      mimg
+    from membs
     where email=#{email} 
       and pwd=password(#{password})
   </select>
 
-  <insert id="insert" parameterType="member" 
-          useGeneratedKeys="true" keyColumn="mno" keyProperty="memberNo">
-    insert into memb(name, email, tel, pwd)
-    values(#{name}, #{email}, #{tel}, password(#{password}))
-  </insert> 
-  
-  <update id="update" parameterType="member">
-    update memb set
-      email=#{email}, 
-      pwd=password(#{password}), 
-      name=#{name}, 
-      tel=#{tel}
-    where mno=#{memberNo}
-  </update> 
+  <select id="countByNo" parameterType="int" resultType="int">
+    select count(*)
+    from membs mb 
+    where mb.mno=#{value}
+  </select>
 
-  <delete id="delete" parameterType="int">
-    delete from memb where mno=#{value}
-  </delete>
+
+<!--   <update id="updateImg" parameterType="map">
+    update MEMB
+    set
+      PATH=#{photoPath}
+    where MNO=#{memberNo}
+  </update> -->
+  
 </mapper>
 
 
