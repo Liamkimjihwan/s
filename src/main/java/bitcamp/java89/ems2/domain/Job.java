@@ -26,7 +26,6 @@ public class Job extends ContentsHeader {
   public void setJobDescription(String jobDescription) {
     this.jobDescription = jobDescription;
   }
-
   
   
 

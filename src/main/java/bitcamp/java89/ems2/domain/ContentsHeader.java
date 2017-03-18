@@ -22,4 +22,5 @@ public class ContentsHeader extends Mento {
   public String toString() {
     return "ContentsHeader [contentsNo=" + contentsNo + ", contentsType=" + contentsType + "]";
   }
+
 }

@@ -1,6 +1,7 @@
 package bitcamp.java89.ems2.domain;
 
 public class Person extends ContentsHeader {
+
   private static final long serialVersionUID = 1L;
   
   protected Object personImage1;
@@ -8,7 +9,6 @@ public class Person extends ContentsHeader {
   protected String personName;
   protected String personJob;
   protected String personDescription;
-  
   
   
   public Object getPersonImage1() {

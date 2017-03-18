@@ -384,8 +384,6 @@ $( function() {
     	  );
     
     
-    
-    
     // 인물 디테일 페이지.
     var $play = $('.play'),
     $detail  = $('.detail'),
@@ -393,7 +391,6 @@ $( function() {
     $close = $('.close');
 
     $('.movies .movie').click(function(){
-//    	console.log("dkdkdl");
       
       $movie.html($(this).html());
       $play.appendTo($movie);
@@ -500,10 +497,55 @@ $( function() {
     	  });
     	  //They can be chained like the example above (when using the same selector).
     	  
-
+    
+    // 좋아요 버튼 눌렀을 때
+    
+    $(document.body).on( "click", ".buttonHolder", function() {// 좋아요 목록 눌렀을 때
+    	
+    	if($(this).children(".btn").hasClass("checked")) {
+    		$(this).children(".btn").removeClass("checked");
+    		$(this).children(".btn").css("color","black");	
+    	} else {
+    		$(this).children(".btn").addClass("checked");
+            $(this).children(".checked").css("color","#f94e66");	
+    	}
+    })
 });
 
+(function($) { // 슬라이드 쇼
+    $(function() {
+        $('.jcarousel').jcarousel();
+
+        $('.jcarousel-control-prev')
+            .on('jcarouselcontrol:active', function() {
+                $(this).removeClass('inactive');
+            })
+            .on('jcarouselcontrol:inactive', function() {
+                $(this).addClass('inactive');
+            })
+            .jcarouselControl({
+                target: '-=1'
+            });
+
+        $('.jcarousel-control-next')
+            .on('jcarouselcontrol:active', function() {
+                $(this).removeClass('inactive');
+            })
+            .on('jcarouselcontrol:inactive', function() {
+                $(this).addClass('inactive');
+            })
+            .jcarouselControl({
+                target: '+=1'
+            });
+        $('.jcarousel-pagination')
+            .on('jcarouselpagination:active', 'a', function() {
+                $(this).addClass('active');
+            })
+            .on('jcarouselpagination:inactive', 'a', function() {
+                $(this).removeClass('active');
+            })
+         .jcarouselPagination();
+    });
+})(jQuery);
 
 
-
-	
