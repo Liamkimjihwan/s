@@ -1,15 +1,10 @@
 package bitcamp.java89.ems2.domain;
 
-import java.io.Serializable;
-
-public class ContentsHeader implements Serializable {
+public class ContentsHeader extends Mento {
   private static final long serialVersionUID = 1L;
   
   protected int contentsNo;
   protected String contentsType;
-  
-  
-  
   
   public int getContentsNo() {
     return contentsNo;
@@ -23,11 +18,9 @@ public class ContentsHeader implements Serializable {
   public void setContentsType(String contentsType) {
     this.contentsType = contentsType;
   }
-  
-  
-  
+  @Override
+  public String toString() {
+    return "ContentsHeader [contentsNo=" + contentsNo + ", contentsType=" + contentsType + "]";
+  }
 
-  
-  
-  
 }

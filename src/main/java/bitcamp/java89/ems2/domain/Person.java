@@ -1,8 +1,7 @@
 package bitcamp.java89.ems2.domain;
 
-import java.io.Serializable;
+public class Person extends ContentsHeader {
 
-public class Person implements Serializable {
   private static final long serialVersionUID = 1L;
   
   protected Object personImage1;
@@ -10,7 +9,6 @@ public class Person implements Serializable {
   protected String personName;
   protected String personJob;
   protected String personDescription;
-  
   
   
   public Object getPersonImage1() {

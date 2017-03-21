@@ -1,34 +1,92 @@
-<div id="con_header">
-	<div id="wrap_header">
-	
-	  <header id="main_header">
-	  
-	  <div class= "user-info">
-	   <div id="user-phot"><img src="../mystuff/img/lee.jpg"></div>
-	   <div class="user-detail">
-	    <div id="name"><h3>비트캠프</h3></div>
-	    <div class="mylist">
-	      <div class="likes"><a href="">3</a><br>likes</div>
-	      <div class="follows"><a href="">5</a><br>follows</div>
-	      <div class="questions"><a href="">12</a><br>questions</div>
-	    </div>
-	  </div>
-	  
-	  </div>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DREAMTREE navigation</title>
 
-	    <nav id="main_gnb">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="header-bottom">
+  <div class="header-top">
+	  <div class="header-wrap">
+	    <div class="logo-bottom">
+	      <a rel="alternate" href="http://192.168.1.117:8080/bitcamp-project-s/index.html">DREAMTREE</a>
+	    </div>
+	    <div class="header-menus">
 	      <ul>
-	        <li><a href="#">seeds</a></li>
-	        <li><a href="#">mystuff</a></li>
-	        <li><a href="#">likes</a></li>
+	        <li> Seeds </li>
+	        <li><a rel="alternate" href="http://192.168.1.15:8080/bitcamp-project-s/mystuff/homepage.html">Mystuff</a></li>
+	        <li><a rel="alternate" href="http://192.168.1.15:8080/bitcamp-project-s/likeList/mento-like.html">Likes</a></li>
 	      </ul>
-	    </nav>
-<div id="right">
-          <button type="button" class="menu"></button>
-          <button type="button" class="myself"></button>
-          <button type="button" class="message"></button>
-        </div>
-	  </header>
 	    </div>
+	    <div class="header-icons">
+	      <div class="sign-out-icon">
+	         <img class="sign-out" alt="" src="../common/img/power-24.png">
+	      </div>
+	      
+	      <div class="user-menu-toggle toggle">
+	         <img class="menu-btn sign-in on" alt="" src="../common/img/contacts-24.png">
+	      </div>
+	      
+	      <div class="user-menu toggle" style="display: none;">
 
+		      <div class="user-info toggle">
+		        <img class="profile-img" src=""></img>
+		        <h3 class="name"></h3>
+		        <div class="ui btns normal">사진변경</div>
+		      </div>
+           <input id='photo' type='file' name='files' multiple>
+		
+		      <div class="invites-info">
+		        <span>다음 검사일이 <i>40일</i> 남았습니다</span>
+		        <div class="next-invite-bar">
+		          <div class="progress" style="width:75%"></div>
+		        </div>
+		        
+		        <p>75% 검사를 완료하였습니다</p>
+		        <div class="ui btns normal">검사하러가기</div>
+		      </div>
+		
+		      <div class="menu-nav">
+		        <li><span class="fa fa-comments-o"></span>메시지 확인<a class="header-menu-number" href="#">5</a></li>
+		        <li><span class="fa fa-cogs"></span>환경설정</li>
+		        <li><span class="fa fa-sign-out"></span>로그아웃</li>
+		      </div>
+		      
+      </div>
+	      
+	      <div class="message-menu-toggle toggle">
+	         <img class="message-btn sign-in on" alt="" src="../common/img/message-2-24.png">
+	      </div>
+	      
+	      
+	      <div class="message-menu toggle" style="display: none;">
+
+          <div class="message-info toggle">
+            
+            <li><div class="profile-img"  style="background-image:url(../common/img/jo.jpg)"></div>
+            <span class="job-sort">프로그래머</span>
+            <span class="message-context"><h3 class="name">김지환</h3>님<a class="message-number" href="#">3</a>의 메세지</li></span>
+            
+            <li><div class="profile-img"  style="background-image:url(../common/img/in.jpg)"></div>
+            <span class="job-sort">프로그래머</span>
+            <span class="message-context"><h3 class="name">정용창</h3>님<a class="message-number" href="#">1</a>의 메세지</li></span>
+            
+            <li><div class="profile-img"  style="background-image:url(../common/img/jo.jpg)"></div>
+            <span class="job-sort">프로그래머</span>
+            <span class="message-context"><h3 class="name">천지연</h3>님<a class="message-number" href="#">2</a>의 메세지</li></span>
+            
+          </div>
+          
+      </div>
+	      
+	    </div>
+    </div>
+  </div>
 </div>
+
+</body>
+</html>

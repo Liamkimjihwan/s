@@ -1,3 +1,4 @@
+<<<<<<< HEAD
  
 $( function() {
 	
@@ -20,6 +21,283 @@ $( function() {
 		      
 		      preparePagingButton(ajaxResult.data.totalCount);
 		  });  
+=======
+
+
+
+
+var currPageNo = 1;
+var pageSize = 5;
+var sno = 5;
+$( function() { 
+    
+	
+	$.getJSON(serverRoot + '/video/list.json', 
+		    {
+			  "pageNo": currPageNo,
+			  "pageSize": pageSize,
+			  "sno": sno
+			}, function(ajaxResult) {
+		      var status = ajaxResult.status;
+		      if (status != "success") return;
+		  
+		      var list = ajaxResult.data.list;
+		      $.each(list, function(k, v) {
+		    	  $.getJSON(serverRoot + '/video/isLike.json', 
+		    		{
+		    		  "cono": v.contentsNo,
+		    		  "sno": sno
+		    		}, function(ajaxResult) {
+		  		      var status = ajaxResult.status;
+				      if (status != "success") return;
+				      
+				      var isLike = ajaxResult.data.isLike;
+				      
+				      if (isLike == 1) {
+				    	  list[k].isLike = true;
+				      } else {
+				    	  list[k].isLike = false;
+				      }
+				      
+				      /*console.log(list[k].isLike);*/
+//				      list[k].isLike = true;
+//				      console.log(list);
+//				      console.log("test02" + typeof list[k].isLike === true);
+				      /*console.log(typeof list[k].isLike == "false");*/
+				      
+				      /*console.log(list);
+		      for (var i in list) {
+		    	  console.log(i,'번째 isLike = ',list[i].isLike)
+		    	  if (list[i].isLike) {
+		    		  $('.btn.heart').addClass('checked')
+		    	  }
+		      }*/
+				      var section = $('.section');
+				      var template = Handlebars.compile($('#trTemplate').html());
+				      section.html(template({"list": list}));
+//				      console.log(list);
+		    		});
+		    	  
+		    	  
+		      });
+
+
+		      /*loadList(currPageNo,pageSize,sno);
+		  	function loadList(pageNo, pageSize, sno) {
+				$.getJSON(serverRoot + '/videoLike/list.json', 
+				    {
+					  "pageNo": pageNo,
+					  "pageSize": pageSize,
+					  "sno": sno
+					}, 
+					function(ajaxResult) {
+					      var status = ajaxResult.status;
+					      if (status != "success")
+					        return;
+					      
+					    var like = ajaxResult.data.list;
+					     console.log(like);*/
+					     
+/*		  	var isLike = {};
+	  		for (var i = 0; i < like.length; i++) {
+	  			if (like[i].contentsNo == list[i].contentsNo) {
+	  				return options.fn(this);
+	  			} else {
+	  				return options.inverse(this);
+	  			}
+	  		}
+			Handlebars.registerHelper('isLike', function(options) {
+			  if () {
+			    return options.fn(this);
+			  } else {
+			    return options.inverse(this);
+			  }
+			});
+		  	
+		  	*                {{#if isLike}}
+     <a href="#" class="btn heart checked"></a>
+    {{else}}
+      <a href="#" class="btn heart"></a>
+    {{/if}}
+		  	*/
+
+		      
+		  	
+		      
+		      
+		      
+		      
+		      
+		  	
+		  	// 좋아요 버튼 눌렀을 때
+		  	
+		  	$(document.body).on( "click", ".section .buttonHolder", function() {// 좋아요 버튼 눌렀을 때
+		  		event.preventDefault();
+		  		var curNo = $(this).attr("data-no");
+		  		
+		  		
+		  		if($(this).children(".btn").hasClass("checked")) {
+		  			$(this).children(".btn").removeClass("checked");
+		  			$(this).children(".btn").css("color","black");
+		  			$.post(serverRoot + '/like/delete.json?curNo=' + curNo, function(ajaxResult) {
+		  				if (ajaxResult.status != "success") {
+		  					alert(ajaxResult.data);
+		  					return;
+		  				}
+		  				console.log("삭제했다.");
+		  			}, 'json');
+		  		} else {
+		  			$(this).children(".btn").addClass("checked");
+		  			$(this).children(".checked").css("color","#f94e66");
+		  			
+		  			$.post(serverRoot + '/like/add.json?curNo=' + curNo + '&sno=' + sno, function(ajaxResult) {
+		  				if (ajaxResult.status != "success") {
+		  					alert(ajaxResult.data);
+		  					return;
+		  				}
+		  				console.log("했다.");
+		  			}, 'json');
+		  		}	
+		  	});  
+
+	
+	
+//	멘토 슬라이드 
+	
+	$.getJSON(serverRoot + '/plan/list.json',
+			 {
+		  "pageNo": currPageNo,
+		  "pageSize": pageSize,
+		  "sno": sno
+		},
+		    function(ajaxResult) {
+		      var status = ajaxResult.status;
+		      if (status != "success")
+		        return;
+		      
+		  
+		      var list = ajaxResult.data.list;
+//		      console.log("멘토");
+//		      console.log(list);
+		      countLike();
+		      
+		      function countLike() {
+		      $.each(list, function(k, v) {
+		    	  $.getJSON(serverRoot + '/video/isLike.json', 
+		    		{
+		    		  "cono": v.contentsNo,
+		    		  "sno": sno
+		    		}, function(ajaxResult) {
+		  		      var status = ajaxResult.status;
+				      if (status != "success") return;
+				      
+				      var isLike = ajaxResult.data.isLike;
+				      
+				      if (isLike == 1) {
+				    	  list[k].isLike = true;
+				      } else {
+				    	  list[k].isLike = false;
+				      }
+
+				      
+				      var section = $('.mt-carousel > .ul');
+				      var template = Handlebars.compile($('#mentoList').html());
+				      section.html(template({"list": list}));
+//				      console.log(list);
+				      jcarousels();
+		    		});
+		    	  
+		    	  
+		      });
+		      }
+
+		  });  
+	
+	
+	// mystuff 파일 업로드
+
+	
+
+	
+	
+	
+	
+	
+	
+	
+		        // 좋아요 버튼 눌렀을 때
+		        
+		        $(document.body).on( "click", ".ul .buttonHolder", function() {// 좋아요 버튼 눌렀을 때
+		        	 event.preventDefault();
+		        	 var curNo = $(this).attr("data-no");
+				        var sno = 5;
+				        
+		        	if($(this).children(".btn").hasClass("checked")) {
+		        		$(this).children(".btn").removeClass("checked");
+		        		$(this).children(".btn").css("color","black");
+		                $.post(serverRoot + '/like/delete.json?curNo=' + curNo, function(ajaxResult) {
+				        	  if (ajaxResult.status != "success") {
+				    	          alert(ajaxResult.data);
+				    	          return;
+				    	      }
+				        	  console.log("삭제했다.");
+				          }, 'json');
+		        	} else {
+		        		$(this).children(".btn").addClass("checked");
+		                $(this).children(".checked").css("color","#f94e66");
+				          
+		                $.post(serverRoot + '/like/add.json?curNo=' + curNo + '&sno=' + sno, function(ajaxResult) {
+				        	  if (ajaxResult.status != "success") {
+				    	          alert(ajaxResult.data);
+				    	          return;
+				    	      }
+				        	  console.log("했다.");
+				          }, 'json');
+		                
+		                
+		        	}
+		        })
+			})
+
+
+
+	
+	
+	
+    function jcarousels() {
+		$('.jcarousel').jcarousel();
+
+        $('.jcarousel-control-prev')
+            .on('jcarouselcontrol:active', function() {
+                $(this).removeClass('inactive');
+            })
+            .on('jcarouselcontrol:inactive', function() {
+                $(this).addClass('inactive');
+            })
+            .jcarouselControl({
+                target: '-=1'
+            });
+
+        $('.jcarousel-control-next')
+            .on('jcarouselcontrol:active', function() {
+                $(this).removeClass('inactive');
+            })
+            .on('jcarouselcontrol:inactive', function() {
+                $(this).addClass('inactive');
+            })
+            .jcarouselControl({
+                target: '+=1'
+            });
+        $('.jcarousel-pagination')
+            .on('jcarouselpagination:active', 'a', function() {
+                $(this).addClass('active');
+            })
+            .on('jcarouselpagination:inactive', 'a', function() {
+                $(this).removeClass('active');
+            })
+         .jcarouselPagination();
+    };
+>>>>>>> branch 'master' of https://github.com/Liamkimjihwan/s.git
 	
 	
     var state = true;
@@ -131,9 +409,6 @@ $( function() {
     	  );
     
     
-    
-    
-    
     // 인물 디테일 페이지.
     var $play = $('.play'),
     $detail  = $('.detail'),
@@ -141,7 +416,10 @@ $( function() {
     $close = $('.close');
 
     $('.movies .movie').click(function(){
+<<<<<<< HEAD
 //    	console.log("dkdkdl");
+=======
+>>>>>>> branch 'master' of https://github.com/Liamkimjihwan/s.git
       
       $movie.html($(this).html());
       $play.appendTo($movie);
@@ -234,6 +512,20 @@ $( function() {
   	         $(this).children(".mt-btm").children(".mt-photo").css("top", "-15px");
     	    }
     	  );
+      
+      
+      $("body").tooltip({   
+    	    selector: "[data-toggle='tooltip']",
+    	    container: "body"
+    	  })
+    	    //Popover, activated by clicking
+    	    .popover({
+    	    selector: "[data-toggle='popover']",
+    	    container: "body",
+    	    html: true
+    	  });
+    	  //They can be chained like the example above (when using the same selector).
+    	  
     
     // 좋아요 버튼 눌렀을 때
     
@@ -286,6 +578,7 @@ $( function() {
 })(jQuery);
 
 
+<<<<<<< HEAD
 
 var currPageNo = 1;
 var pageSize = 5;
@@ -352,3 +645,5 @@ function preparePagingButton(totalCount) {
 
 
 
+=======
+>>>>>>> branch 'master' of https://github.com/Liamkimjihwan/s.git

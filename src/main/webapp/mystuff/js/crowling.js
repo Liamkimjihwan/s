@@ -16,9 +16,6 @@ var dbConnection = mysql.createConnection({
 
 
 
-
-
-
 request(url, function(error, response, html){
        if (error) {throw error};
    

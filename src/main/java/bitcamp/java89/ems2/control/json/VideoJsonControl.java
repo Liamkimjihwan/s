@@ -22,6 +22,7 @@ public class VideoJsonControl {
   
   @RequestMapping("/video/list")
   public AjaxResult list(@RequestParam(defaultValue="1") int pageNo,
+<<<<<<< HEAD
       @RequestParam(defaultValue="5") int pageSize) throws Exception {
     
     if (pageNo < 1) {
@@ -42,6 +43,68 @@ public class VideoJsonControl {
     
     return new AjaxResult(AjaxResult.SUCCESS, resultMap);
   }
+=======
+      @RequestParam(defaultValue="5") int pageSize, @RequestParam int sno) throws Exception {
+    if (pageNo < 1) {
+      pageNo = 1;
+    }
+    
+    if (pageSize < 5 || pageSize > 20) {
+      pageSize = 5;
+    }
+
+    List<Video> list = videoService.getList(pageNo, pageSize, sno);
+    System.out.println("대체"+list);
+    int totalCount = videoService.getSize();
+    
+    HashMap<String,Object> resultMap = new HashMap<>();
+    resultMap.put("list", list);
+    resultMap.put("totalCount", totalCount);
+    
+    return new AjaxResult(AjaxResult.SUCCESS, resultMap);
+  }
+  
+  
+  @RequestMapping("/video/isLike")
+  public AjaxResult list(@RequestParam(value="cono") int cono, @RequestParam(value="sno") int sno) throws Exception {
+    
+    int isLike = videoService.isLike(cono, sno);
+    
+    HashMap<String,Object> resultMap = new HashMap<>();
+    resultMap.put("isLike", isLike);
+    
+    return new AjaxResult(AjaxResult.SUCCESS, resultMap);
+  }
+  
+  
+  
+  @RequestMapping("/videoDetail/list")
+  public AjaxResult detailList(@RequestParam(defaultValue="1") int pageNo,
+      @RequestParam(defaultValue="15") int pageSize, @RequestParam int sno) throws Exception {
+    
+    if (pageNo < 1) {
+      pageNo = 1;
+    }
+    
+    if (pageSize < 15 || pageSize > 30) {
+      pageSize = 15;
+    }
+
+    List<Video> list = videoService.detailList(pageNo, pageSize, sno);
+    int totalCount = videoService.getSize();
+    
+    
+    HashMap<String,Object> resultMap = new HashMap<>();
+    resultMap.put("list", list);
+    resultMap.put("totalCount", totalCount);
+    
+    return new AjaxResult(AjaxResult.SUCCESS, resultMap);
+  }
+  
+  
+  
+  
+>>>>>>> branch 'master' of https://github.com/Liamkimjihwan/s.git
   
  /* @RequestMapping("/video/detail")
   public AjaxResult detail(int memberNo) throws Exception {

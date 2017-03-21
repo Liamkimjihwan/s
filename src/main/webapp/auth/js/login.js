@@ -18,32 +18,30 @@ $(function() {
     elem.append($ripple);
   };
   
-<<<<<<< HEAD
-  $(document).on("click", "#submit-btn", function(e) {
-	/*  if ($('#save-email').is(':checked')) {
-		  setCookie('email', $('#email').val(), 30);
-	  } else {
-		  setCookie('email', '', 0);
-	  }*/
-	  
-	  var param = {
-			  email: $('#email').val(),
-			  password: $('#password').val(),
-	  };
-	  
-	  $.post(serverRoot + '/auth/login.json', param, function(ajaxResult) {
-		  if (ajaxResult.status == "success") {
-			  location.href = "../student/main.html";	
-			  return;
-		  }
-		  alert(ajaxResult.data);
-	  }, 'json');
-	  
-   /* if (animating) return;
-=======
   $(document).on("click", ".login_submit", function(e) {
+	  
+	  if ($('#save-email').is(':checked')) {
+			setCookie('email', $('#email').val(), 30);
+		} else {
+			setCookie('email', '', 0);
+		}
+	  
+		var param = {
+				email: $('#email').val(),
+				password: $('#password').val()
+			};
+	  
+		$.post(serverRoot + '/auth/login.json', param, function(ajaxResult) {
+			if (ajaxResult.status == "success") {
+				location.href = "../mystuff/homepage.html";	
+				return;
+			}
+			console.log(ajaxResult.data);
+			alert(ajaxResult.data);
+		}, 'json');
+		
+	  
     if (animating) return;
->>>>>>> branch 'master' of https://github.com/Liamkimjihwan/s.git
     animating = true;
     var that = this;
     ripple($(that), e);
@@ -62,9 +60,6 @@ $(function() {
         $(that).removeClass("success processing");
       }, submitPhase2);
     }, submitPhase1);
-    
-    */
-    
   });
   
   $(document).on("click", ".app_logout", function(e) {
@@ -100,19 +95,10 @@ $(function() {
     	 $(".sign-in").removeClass("animated fadeOutLeft");
     	 $(".sign-in").addClass("animated fadeInLeft");
     	 $('.sign-in').css("display", "block");
-//	$('.sign-up').css("display", "none");
-	  
-  })
-  
-  
-});
+	});
+}); // click()
 
-
-<<<<<<< HEAD
-$(function(){ // 비밀번호 재확인하는 스크립
-=======
 $(function(){
->>>>>>> branch 'master' of https://github.com/Liamkimjihwan/s.git
 	  $('.passIn').keyup(function(){
 	   $('.check').html('');
 	  }); //passIn.keyup
