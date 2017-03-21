@@ -1,5 +1,26 @@
  
-$( function() { 
+$( function() {
+	
+	$.getJSON(serverRoot + '/video/list.json',  
+		    function(ajaxResult) {
+		      var status = ajaxResult.status;
+		      if (status != "success")
+		        return;
+		      
+		      var list = ajaxResult.data.list;
+//		      console.log(list);
+		      var tbody = $('#div2');
+		      var template = Handlebars.compile($('#trTemplate').html());
+		      tbody.html(template({"list": list}));
+		      
+		    /*  $('.name-link').click(function(event) {
+		        event.preventDefault();
+		        location.href = 'view.html?memberNo=' + $(this).attr("data-no");
+		      });*/
+		      
+		      preparePagingButton(ajaxResult.data.totalCount);
+		  });  
+	
 	
     var state = true;
     $(document.body).on( "click", ".job-more", function() { // 직업 더보기
@@ -120,7 +141,7 @@ $( function() {
     $close = $('.close');
 
     $('.movies .movie').click(function(){
-    	console.log("dkdkdl");
+//    	console.log("dkdkdl");
       
       $movie.html($(this).html());
       $play.appendTo($movie);
@@ -159,9 +180,9 @@ $( function() {
     Close
     --------------------*/
     function close(){
-    console.log('asd');
+//    console.log('asd');
     $p = $('.detail .poster');
-    console.log($p)
+//    console.log($p)
     $p.css({
     top: $p.data('top'),
     left: $p.data('left'),
@@ -266,112 +287,68 @@ $( function() {
 
 
 
+var currPageNo = 1;
+var pageSize = 5;
+
+loadList(currPageNo, 5);
+
+function preparePagingButton(totalCount) {
+	  // 현재 페이지 번호가 1이면 이전 버튼을 비활성시킨다.
+	  if (currPageNo <= 1) {
+	    $('#prevPgBtn').attr('disabled', true);
+	  } else {
+	    $('#prevPgBtn').attr('disabled', false);
+	  }
+	  
+	  var maxPageNo = parseInt(totalCount / pageSize);
+	  if ((totalCount % pageSize) > 0) {
+	    maxPageNo++;
+	  }
+	  
+	  if (currPageNo >= maxPageNo) {
+	    $('#nextPgBtn').attr('disabled', true); 
+	  } else {
+	    $('#nextPgBtn').attr('disabled', false);
+	  }
+	  
+	  // 현재 페이지 번호를 출력한다.
+	  $('#pageNo').text(currPageNo);
+	}
+
+	function loadList(pageNo, pageSize) {
+		$.getJSON(serverRoot + '/video/list.json', 
+		    {
+			  "pageNo": pageNo,
+			  "pageSize": pageSize
+			}, 
+			function(ajaxResult) {
+			  var status = ajaxResult.status;
+			  if (status != "success")
+				  return;
+			  
+			  var list = ajaxResult.data.list;
+			  var tbody = $('#div2');
+			  var template = Handlebars.compile($('#trTemplate').html());
+			  tbody.html(template({"list": list}));
+			  
+			/*  $('.name-link').click(function(event) {
+			  	event.preventDefault();
+			  	location.href = 'view.html?memberNo=' + $(this).attr("data-no");
+			  });
+			  */
+			  preparePagingButton(ajaxResult.data.totalCount);
+		});  
+	}
+
+
+
+
+
 
 ///   크롤링.
 
-var mysql = require('mysql');
-var request = require("request");  
-var cheerio = require("cheerio");  
-var url = "https://www.ted.com/talks?language=ko&sort=newest&topics%5B%5D=architecture";
-https://www.ted.com/talks?language=ko&sort=newest&topics%5B%5D=astronomy
-	https://www.ted.com/talks?language=ko&sort=newest&topics%5B%5D=biotech
-		https://www.ted.com/talks?language=ko&sort=newest&topics%5B%5D=finance
-var dbConnection = mysql.createConnection({   
-    host: 'localhost', 
-    user: 'java89',   
-    password: '1111',   
-    database: 'dreamtree' 
-   });
-
-
-
-request(url, function(error, response, html){  
-	    if (error) {throw error};
-	
-	    var a = cheerio.load(html);
-
-	    var count = 0;
-	    var eachLength = new Array(); 
-	    var kotl = new Array();
-	    var anker = new Array();
-	    var thumImg = new Array();
-	    var author = new Array();    
-    	var vodsc = new Array(); 
-    	var simg = new Array(); 
-    	var spnm = new Array(); 
-    	var spdsc = new Array(); 
-
-	    a('div.media__message h4.h9').each(function(){ // 제목
-	    	crtitle[count++] = a(this).text().replace(/\n/g, "").replace(/\r/g, "");
-	    });
-	    count= 0;
-	    a('div.media__image').each(function(){ // 제목
-	    	anker[count++] = "https://www.ted.com" + a(this).children("a").attr("href");
-	    });
-	    count= 0;
-	    a('img.thumb__image').each(function(){ // 제목
-	    	thumImg[count++] = a(this).attr("src");
-	    });
-	    count= 0;
-	    a('div.media__message h4.h12').each(function(){ // 제목
-	    	author[count++] = a(this).text();
-	    });
-	    
-	    
-	    for (i =0; i < anker.length; i++) { 
-		    request(anker[i], function(error, response, html){  
-			    if (error) {throw error};
-			
-			    var a = cheerio.load(html);
-				
-			    a('p.talk-description').each(function() {
-			    	vodsc[i] = a(this).text().replace(/\n/g, "").replace(/\r/g, "");
-			    });
-
-			    a('img.thumb__image').each(function() {
-			    	simg[i] = a(this).attr("src");
-			    });
-			    
-			    a('a.talk-speaker__link').each(function() {
-			    	spnm[i] = a(this).attr("href");
-			    });
-			    
-			    a('div.talk-speaker__description').each(function(){
-			    	spdsc[i] = a(this).text();
-		    	});
-			});
-	    }
-	    
-	    for(var i = 0; i < crtitle.length; i++) {
-	    	cono = 8; 
-	    	/*console.log(i + "타이틀" + "[" + crtitle[i]+"]" +"밸류"+ "[" +value[i] + "]" + "썸네일" + "[" +thumImg[i] + "]"+ "작가"+"[" +author[i]+ "]");*/
-	    	dbConnection.query("insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg) values(?,?,?,?,?,?,?,?)", 
-	    			[cono++, value[i], thumImg[i], crtitle[i], author[i], vodsc[i], spnm[i], spdsc[i], simg[i]], 
-	    			function (err, rows, fields) {
-	    		console.log(rows);
-	    	});
-	    }
-	    
-
-    
-    
-});
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-	

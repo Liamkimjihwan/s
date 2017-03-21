@@ -93,7 +93,7 @@ request(url, function(error, response, html){
     	                				console.log(cono);
 
     	             dbConnection.query("insert into contents(cono,type) values(?,?)", 
-    	      					   [cono, "video"],
+    	      					   [ "video"],
     	      					   function (err, rows, fields) {
     	  /* 				if(cono == rows[0].cono) {
     	    				  return cono +1;
@@ -103,7 +103,7 @@ request(url, function(error, response, html){
     	             });			
     	             	
     	  			   dbConnection.query("insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg,posted) values(?,?,?,?,?,?,?,?,?)", 
-    	  					   [cono, crtitle[count], anker[count], thumImg[count], vodsc[count], spnm[count], spdsc[count], simg[count], posted[count]],
+    	  					   [++cono, crtitle[count], anker[count], thumImg[count], vodsc[count], spnm[count], spdsc[count], simg[count], posted[count]],
     	  					   function (err, rows, fields) {
     	  /*     				if(cono == rows[0].cono) {
     	        				   cono +1;
@@ -112,9 +112,6 @@ request(url, function(error, response, html){
 //    	  				   			console.log(rows);
     	  			   			});
     	  			   
-
-    	  			   
-
     	       		});
 
        }
